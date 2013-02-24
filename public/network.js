@@ -9,6 +9,10 @@ var network = (function(){
 
 	if(id === "")id = null;
 
+	view.getId = function(){
+		return id;
+	};
+
 	view.genNew = function(obj, success, failure){
 		$.post("/info", {
 			info: obj
