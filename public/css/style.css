@@ -5,11 +5,16 @@ html, body{
 	padding: 0;
 	margin: 0;
 	font-family: "Calibri";
+	font-weight: normal;
 }
+
 aside{
 	position: absolute;
-	left: 20px;
-	top: 20px;
+	padding: 10px;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-right: 0px;
 	bottom: 0;
 	width: 20%;
 	overflow-y: auto;
@@ -25,6 +30,10 @@ h1{
 
 }
 
+/* member classes*/
+.name {
+	font: 20px bold arial sans-serif;
+}
 
 .postbox {
 
@@ -51,11 +60,12 @@ background-repeat: no-repeat;
 }
 
 li:hover{
-	background-color: yellow;
+	background-color: grey;
+	color:white;
 }
 
 li:active{
-	background-color: 
+	background-color: black;
 
 }
 
