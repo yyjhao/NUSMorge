@@ -5,7 +5,7 @@
  * hovering and shit
  */
 
-var UserBar = function(userList, timetable){
+var UserBar = function(userList, timetable, userInfo){
 	// parse url to an array of modules
 	//  in the form of [CS1234=L2S2]
 	//  may want to further parse

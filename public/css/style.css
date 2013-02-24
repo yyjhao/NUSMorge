@@ -83,6 +83,10 @@ li:active{
 
 /* time table stuff */
 
+.toShowButton{
+	cursor: pointer;
+}
+
 #timetableView table{
 	border-collapse:collapse;
 }
@@ -142,4 +146,13 @@ li:active{
 	-moz-box-sizing: border-box;
 	background: white;
 	z-index: 1;
+	opacity: 0.5;
+}
+
+.user.editable{
+	opacity: 1;
+}
+
+.user.tohide{
+	opacity: 0.2;
 }
