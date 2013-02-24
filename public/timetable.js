@@ -235,7 +235,11 @@ var TimeTable = function(div, moduleInfo){
                 if (aggregateInfo[i][j] == 0) color = "transparent";
                 else color = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 5)];
                 cells[i][j / 2 | 0][j % 2].style.background = color;
-                cells[i][j / 2 | 0][j % 2].innerHTML = aggregateInfo[i][j] || "";
+                var count = aggregateInfo[i][j];
+                if(count === 1 || count === 0){
+                    count = "";
+                }
+                cells[i][j / 2 | 0][j % 2].innerHTML = count;
             }
         }
 
