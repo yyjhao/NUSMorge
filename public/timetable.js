@@ -10,8 +10,12 @@ var TimeTable = function(div, moduleInfo){
 	 	"b": {name: "eheh"}	
 	 };
 
+	view.getUserInfo = function(){
+		return userInfo;
+	};
+
 	// public APIs
-	var addUser = view.addUser = function(id, modules){
+	var addUser = view.addUser = function(id, modules, hidden){
 		if(userInfo[id])throw "WTF add the same user?";
 		var info = [];
 		modules.forEach(function(m){
@@ -31,6 +35,9 @@ var TimeTable = function(div, moduleInfo){
 			info: info
 		};
 		showUser(id);
+		if(hidden){
+			hideUser(id);
+		}
 	};
 
 	var highlightUser = view.highlightUser = function(id){
