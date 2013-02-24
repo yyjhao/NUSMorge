@@ -132,14 +132,11 @@ var TimeTable = function(div, moduleInfo){
         var elm = this.elm = document.createElement("div");
         elm.className = "user";
         elm.style.display = "none";
-        var toShowButton = this.toShowButton = document.createElement("div");
-        toShowButton.className = "toShowButton";
         var self = this;
-        toShowButton.onclick = function(){
+        elm.onclick = function(){
             $(self.elm).toggleClass("toHide");
             self.toggleShowHide();
         };
-        elm.appendChild(toShowButton);
         var content = this.content = document.createElement("span");
         elm.appendChild(content);
         // hidden means not considered in aggreate, but it will still be displayed
@@ -164,11 +161,6 @@ var TimeTable = function(div, moduleInfo){
 
     UserTimeSlotDisplay.prototype.setHidden = function(hidden, dontTell){
         this.hidden = hidden;
-        if(hidden){
-            $(this.toShowButton).addClass("tohide");
-        }else{
-            $(this.toShowButton).removeClass("tohide");
-        }
         if(!dontTell){
             this.slotVisibilityChanged(hidden);
         }
