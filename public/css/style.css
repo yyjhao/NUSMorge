@@ -19,7 +19,6 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -46,7 +45,6 @@ table {
     border-spacing: 0;
 }
 
-
 html, body {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -66,10 +64,12 @@ header {
 }
 
 header>h1 {
+	color: #f7912d;
     display: block;
     margin: auto auto;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
+    text-shadow: 1px 1px 1px grey;
 }
 
 header>img{
@@ -83,8 +83,9 @@ header>img{
 }
 #header{
 	margin-left: 20%;
-	background-color: f7912d;
-	text-align: right;
+	background-color: #f7912d;
+	text-align: left;
+	color: white;
 }
 
 .bottom {
