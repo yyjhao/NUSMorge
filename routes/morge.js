@@ -20,7 +20,8 @@ exports.findAll = function(req, res) {
 }
 
 exports.add = function(req, res) {
-    var id = req.params.id;
+    //var id = req.params.id;
+    var id = randomstring.generate(8);
     var info = req.body.info;
 
     console.log("ensure that timetable does not exist");
@@ -30,14 +31,14 @@ exports.add = function(req, res) {
         timetable = {"id": id, "info": info};
         db.save(timetable, function(id) {
             console.log("adding success");
-            res.json({"err":false});
+            res.json({"id": id, "err": false});
         });
     });
 
 };
 
 exports.update = function(req, res) {
-    var id = req.params.id;
+    var id = req.body.id;
     var info = req.body.info;
 
     timetable = {"id": id, "info": info};

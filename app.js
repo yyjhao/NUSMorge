@@ -13,7 +13,9 @@ app.get('/');
 //app.get('/:id', function(req, res) { });
 app.get('/info', morge.findAll);
 app.get('/info/:id', morge.find);
-app.post('/info/:id', morge.add);
+
+app.post('/info', morge.add);
+
 app.get('/404', function(req, res) {
     res.status(404);
     fs.readFile('./public/404.html', 'utf-8', function (err, data) {
@@ -24,7 +26,7 @@ app.get('/404', function(req, res) {
 app.get('*', function(req, res) {
     res.redirect('/404');
 });
-//app.put('/info/:id', morge.update);
+app.put('/info/:id', morge.update);
 //app.delete('/info/:id', morge.delete);
 
 /*
