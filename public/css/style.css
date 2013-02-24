@@ -1,4 +1,3 @@
-/*global attributes*/
 
 html, body{
     height: 100%;
@@ -6,6 +5,7 @@ html, body{
     margin: 0;
     font-family: "Calibri";
     font-weight: normal;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 aside{
