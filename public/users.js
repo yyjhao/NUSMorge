@@ -14,7 +14,15 @@ var UserBar = function(userList, timetable, userInfo){
 		if(!m || (!m.length)){
 			failure();
 		}else{
-			success(m);
+			var set = {};
+			m.forEach(function(mm){
+				set[mm] = true;
+			});
+			var slots = Object.keys(set).map(function(mm){
+				var inf = mm.split("=");
+				return moduleInfo[inf[0]][inf[1]];
+			});
+			success(slots);
 		}
 	}
 
@@ -23,13 +31,12 @@ var UserBar = function(userList, timetable, userInfo){
 	var users = [];
 	var editing = false;
 	view.addUser = function(name, url, success){
-		parseUrl(url, function(mods){
+		parseUrl(url, function(slots){
 			var user = {};
 			user.id = name + "_" + (new Date()).getTime();
 			user.hidden = false;
-			user.modules = ["a", "b"];
 			user.name = name;
-			addUserWithInfo(user);
+			addUserWithInfo(user, slots, m[0]);
 			success();
 		}, function(){
 			alert("Something must be wrong with your url.");

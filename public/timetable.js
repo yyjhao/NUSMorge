@@ -15,12 +15,14 @@ var TimeTable = function(div, moduleInfo){
     };
 
     // public APIs
-    var addUser = view.addUser = function(id, modules){
+    var addUser = view.addUser = function(id, slots, moduleName){
         if(userInfo[id])throw "WTF add the same user?";
         var info = [];
-        modules.forEach(function(m){
+        slots.forEach(function(m){
+            var name = moduleName + "-" + slots.type;
+            
             var obj = {};
-            obj.name = moduleInfo[m].name;
+            obj.name = moduleName + "-" + slots.type;
             obj.timeSlot = {
                 start: Math.floor(Math.random() * 5),
             day: Math.floor(Math.random() * 5),
