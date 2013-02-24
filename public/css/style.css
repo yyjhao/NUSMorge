@@ -188,7 +188,6 @@ button {
 /* member classes*/
 
 #timetableView{
-    width: 100%;
     margin-left: 20%
 }
 
@@ -219,6 +218,7 @@ button {
     width: 2.4em;
     max-width: 2.4em;
     min-width: 2.4em;
+    vertical-align: middle;
 }
 
 .timetable td{

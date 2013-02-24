@@ -18,11 +18,15 @@ var UserBar = function(userList, timetable, userInfo){
 			m.forEach(function(mm){
 				set[mm] = true;
 			});
-			var slots = Object.keys(set).map(function(mm){
-				var inf = mm.split("=");
-				return moduleInfo[inf[0]][inf[1]];
-			});
-			success(slots);
+			try{
+				var slots = Object.keys(set).map(function(mm){
+					var inf = mm.split("=");
+					return moduleInfo[inf[0]][inf[1]];
+				});
+				success(slots);
+			}catch(e){
+				failure();
+			}
 		}
 	}
 
@@ -41,7 +45,7 @@ var UserBar = function(userList, timetable, userInfo){
 			success();
 			view.update();
 		}, function(){
-			alert("Something must be wrong with your url.");
+			alert("Something must be wrong with your url.\nNote that currently we only support the long version of nusmods url.");
 		});
 	};
 
@@ -144,7 +148,6 @@ var UserBar = function(userList, timetable, userInfo){
 		});
 		$(userList).prepend(elm);
 	}
-	console.log(userInfo);
 	userInfo.forEach(function(u){
 		u.hidden = (u.hidden === "true");
 		u.info.forEach(function(inf){
