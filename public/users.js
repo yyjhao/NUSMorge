@@ -22,6 +22,7 @@ var UserBar = function(userList, timetable){
 	var view = {};
 
 	var users = {};
+	var editing = false;
 	view.addUser = function(name, url, success){
 		parseUrl(url, function(mods){
 			var id = name + "_" + (new Date());
@@ -35,6 +36,19 @@ var UserBar = function(userList, timetable){
 			nameDisplay.innerHTML = name;
 			elm.appendChild(nameDisplay);
 			elm.appendChild(remove);
+			$(elm).hover(function(){
+				if(!editing) timetable.highlightUser(id);
+			}, function(){
+				if(!editing) timetable.hideUserView();
+			}).click(function(){
+				if(editing == id){
+					timetable.hideUserView();
+					editing = false;
+				}else if(!editing){
+					editing = id;
+					timetable.editUser(id);
+				}
+			});
 			$(userList).prepend(elm);
 			success();
 		}, function(){
