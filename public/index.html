@@ -11,7 +11,9 @@
         <script src="network.js"></script>
         <script src="main.js"></script>
     </head>
+
     <body>
+
         <aside>
         <header>
                 <img src="ico.png">
@@ -34,7 +36,24 @@
                 </div>
         </div>
         </aside>
+         <div id="header">AY
+         <script>
+        var current = new Date();
+        var now = current.getFullYear();
+        var next = now + 1;
+        function check(date,first,second) {
+         if(date.getMonth()<=7){
+            return first-1 + "/" + first;
+        }
+         else {return first + "/" + second;
+        }
+        }
+
+        document.write(check(current,now,next));
+        </script> </div>
+
         <div id="timetableView">
         </div>
+
     </body>
 </html>

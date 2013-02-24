@@ -49,6 +49,11 @@ header>img{
 .name {
     
 }
+#header{
+	margin-left: 20%;
+	background-color: f7912d;
+	text-align: right;
+}
 
 #timetableView{
     margin-left: 20%;
