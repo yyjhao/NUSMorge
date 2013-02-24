@@ -176,6 +176,13 @@ button {
     right: 0.3em;
     cursor: pointer;
     top: 0.1em;
+    width: 20px;
+    text-align: center;
+}
+
+.toremove:hover{
+	background-color: black;
+	color: white;
 }
 
 .view-toggle.toggled{
