@@ -149,7 +149,7 @@ var TimeTable = function(div, moduleInfo){
 
     UserTimeSlotDisplay.prototype.setSlot = function(s, editable){
         var timeSlot = s.timeSlot;
-        this.content.innerHTML = timeSlot.name;
+        this.content.innerHTML = s.name;
         this.setHidden(s.isHidden, true);
         this.elm.style.width = 100 * timeSlot.duration / 2 + "%";
         if(timeSlot.start % 2)this.elm.style.left = "50%";
@@ -184,6 +184,7 @@ var TimeTable = function(div, moduleInfo){
         }else{
             showSlot(this.slot);
         }
+        console.log(this.slot);
         updateAggregateView();
     };
 

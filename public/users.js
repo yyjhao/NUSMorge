@@ -73,8 +73,7 @@ var UserBar = function(userList, timetable, userInfo){
                 obj.timeSlot = {
                     start: s.start,
                     day: s.day,
-                    duration: s.duration,
-                    name: name
+                    duration: s.duration
                 };
                 obj.isHidden = false;
                 info.push(obj);
