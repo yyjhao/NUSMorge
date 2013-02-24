@@ -23,7 +23,7 @@ app.get('/404', function(req, res) {
 app.get('*', function(req, res) {
     res.redirect('/404');
 });
-app.put('/info/:id', morge.update);
+app.put('/info', morge.update);
 //app.delete('/info/:id', morge.delete);
 
 app.listen(3000);

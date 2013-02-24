@@ -7,7 +7,10 @@ exports.find = function(req, res) {
     console.log("finding: " + id);
     db.find(id, function(col) {
         console.log("listing success");
-        res.json(col);
+        res.json({
+            error: false,
+            info: col
+        });
     });
 }
 
@@ -23,7 +26,8 @@ exports.add = function(req, res) {
     var id = (new Date()).getTime().toString(36);
     var info = req.body.info;
 
-    console.log("ensure that timetable does not exist");
+    console.log(info['a_hdkk0h5d'].info[0])
+
     db.find(id, function(col) {
         timetable = {"id": id, "info": info};
         db.save(timetable, function(id) {
@@ -38,10 +42,8 @@ exports.update = function(req, res) {
     var id = req.body.id;
     var info = req.body.info;
 
-    timetable = {"id": id, "info": info};
-    db.save(timetable, function(id) {
+    db.update({id: id, info: info}, function(id) {
         console.log("adding success");
         res.json({"error": false});
     });
-    
-}
+};
