@@ -16,6 +16,12 @@ $(document).ready(function(){
 				urlInput.val("");
 			});
 		});
+		nameInput.add(urlInput).on('keyup', function(e) {
+			if (e.which == 13) {
+				inputBut.click();
+				e.preventDefault();
+			}
+		});
 
 		var genLinkManger = GenLinkManager($("#gen-link-area"), function(){
 			return userBar.getUserInfo();
