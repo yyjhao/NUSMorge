@@ -51,7 +51,8 @@ html, body {
 
 aside {
     float: left;
-    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em; 
     width: 20%;
     height:100%;
     box-sizing: border-box;
@@ -64,6 +65,7 @@ header {
     margin: 0 auto 1em auto;
 }
 
+/*
 header>h1 {
     color: #f7912d;
     display: block;
@@ -72,6 +74,7 @@ header>h1 {
     font-size: 25px;
     text-shadow: 1px 1px 1px grey;
 }
+*/
 
 header>img{
     display: block;
@@ -122,6 +125,7 @@ a:link:active, a:visited:active {
 /* People stuff */
 
 .add-box {
+	text-align: center;
 }
 
 .add-box>input {
@@ -170,6 +174,16 @@ button:hover {
 
 button:active{
 	box-shadow: none;
+}
+
+button:hover{
+	background-color: white;
+	color: #F7912D;
+	border: 1px solid black;
+}
+
+.buttons{
+	text-align: center;
 }
 
 #people-list{
