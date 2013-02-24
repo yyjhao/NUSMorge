@@ -197,8 +197,7 @@ var TimeTable = function(div, moduleInfo){
     }
 
     function updateAggregateView(){
-        var hexcolors = ["#FFFFFF", "#FF3D00", "#FF9473", "#FFC600", "#FFEF00", "#639A00", "#98ED00"];
-        //var colors = ["14", "#FF9473", "#FFC600", "#FFEF00", "#639A00", "#98ED00"];
+        var hexcolors = ["#FFFFFF", "#D9FA8F", "#C6F66F", "#FFFF40", "#FFD300", "#FF6440", "#A62000"];
 
         var maxAgg = 0; 
         for (var i = 0; i < 5; i++) {
@@ -206,31 +205,19 @@ var TimeTable = function(div, moduleInfo){
                 maxAgg = maxAgg > aggregateInfo[i][j] ? maxAgg : aggregateInfo[i][j];
             }
         }
-        //console.log(maxAgg);
 
-        /*
-        if(!userCount){
-            for(var i = 0; i < 5; i++){
-                for(var j = 0; j < 32; j++){
-                    cells[i][j / 2 | 0][j % 2].style.background = "white";
-                }
-            }
-        } else {
-        */
         for(var i = 0; i < 5; i++){
             for(var j = 0; j < 32; j++){
-                cells[i][j / 2 | 0][j % 2].style.background = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg) * 6];
-                console.log("i: " + i + "j: " + j + "col: " + cells[i][j/2 | 0][j%2].style.background);
-                /*
-                   cells[i][j / 2 | 0][j % 2].style.background = "hsl(" +
-                   ((userCount - aggregateInfo[i][j]) / userCount * 70 | 0) +
-                   ", 100%, " +
-                   (((userCount - aggregateInfo[i][j]) / userCount * 50 | 0) + 50) +
-                   "%)";
-            }
-                   */
+                var color = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 6)];
+                // 5
+                // 0 1 2 3 4 5
+                // 0 1/5 2/5 3/5 4/5 5/5
+                cells[i][j / 2 | 0][j % 2].style.background = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 6)];
             }
         }
+
+        window.maxa = maxAgg;
+        window.a = aggregateInfo;
     }
 
     function hideUserView(){
