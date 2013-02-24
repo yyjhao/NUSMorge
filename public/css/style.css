@@ -56,6 +56,7 @@ aside {
     height:100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+    position: relative;
 }
 
 header {
@@ -89,7 +90,14 @@ header>img{
 }
 
 .bottom {
-    margin-bottom: 0px;
+    position: absolute;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    -moz-border-sizing: border-box;
 }
 
 /* People stuff */
@@ -130,8 +138,11 @@ button {
 }
 
 #people-list{
-    min-height: 7em;
-    max-height: 7em;
+    height: -webkit-calc(100% - 300px);
+    height: -moz-calc(100% - 300px);
+    height: -ms-calc(100% - 300px);
+    height: -o-calc(100% - 300px);
+    height: calc(100% - 300px);
     margin: 0em 0em 0.5em 0em;
     overflow-y: auto;
 }

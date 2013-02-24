@@ -1,9 +1,9 @@
 var GenLinkManager = function(area, getObj, syncArea, sync){
+	syncArea.find("button").click(function(){
+		sync();
+	});
 	if(network.getId()){
 		area.hide();
-		syncArea.find("button").click(function(){
-			sync();
-		});
 	}else{
 		syncArea.hide();
 		var text = area.find("input").click(function(){
@@ -11,8 +11,11 @@ var GenLinkManager = function(area, getObj, syncArea, sync){
 		});
 		var gotArea = area.find(".gotLink").hide();
 		area.find("button").click(function(){
+			var self = this;
 			network.genNew(getObj(), function(id){
 				location.hash = id;
+				$(self).hide();
+				syncArea.show();
 				network.updateId();
 				gotArea.show();
 				text.val(location);
