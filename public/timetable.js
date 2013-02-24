@@ -75,7 +75,6 @@ var TimeTable = function(div, moduleInfo){
     };
 
     function addToAggregate(slot){
-        console.trace();
         var i = slot.day;
         for(var j = slot.start; j < slot.start + slot.duration; j++){
             aggregateInfo[i][j]++;

@@ -39,6 +39,7 @@ var UserBar = function(userList, timetable, userInfo){
 			user.info = slotsToInfo(slots);
 			addUserWithInfo(user);
 			success();
+			view.update();
 		}, function(){
 			alert("Something must be wrong with your url.");
 		});
@@ -54,7 +55,6 @@ var UserBar = function(userList, timetable, userInfo){
 	view.update = function(){
 		var data = getUserInfo();
 		network.postUpdate(data, function(){
-			alert("updated");
 		});
 	};
 
@@ -123,7 +123,6 @@ var UserBar = function(userList, timetable, userInfo){
 				}
 				userList.removeChild(elm);
 				users.splice(users.indexOf(user), 1);
-				console.log(users);
 			}
 			e.preventDefault();
 			return false;
