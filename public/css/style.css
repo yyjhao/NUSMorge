@@ -84,7 +84,23 @@ li:active{
     cursor: pointer;
 }
 
+.view-toggle{
+	height: 0.5em;
+	width: 0.5em;
+	display: inline-block;
+	opacity: 0.5;
+	background: black;
+}
+
+.view-toggle.toggled{
+	opacity: 1;
+}
+
 /* time table stuff */
+
+.toShowButton{
+	cursor: pointer;
+}
 
 #timetableView table{
     border-collapse:collapse;
@@ -135,6 +151,7 @@ li:active{
 }
 
 .user{
+<<<<<<< HEAD
     position: absolute;
     background: yellow;
     border-radius: 5px;
@@ -150,4 +167,25 @@ li:active{
 .error {
     margin-left: 20%;
     margin-top: 5%;
+=======
+	position: absolute;
+	background: yellow;
+	border-radius: 5px;
+	border: 2px solid black;
+	top: 0;
+	bottom: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background: white;
+	z-index: 1;
+	opacity: 0.5;
+}
+
+.user.editable{
+	opacity: 1;
+}
+
+.user.tohide{
+	opacity: 0.2;
+>>>>>>> 2a4236b5ee78574dd812a9b3c90137e764f030fc
 }

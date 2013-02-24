@@ -35,3 +35,10 @@ app.post('/info', function(req, res) {
 */
 
 app.listen(3000);
+
+/*
+.error {
+    margin-left: 20%;
+    margin-top: 5%;
+}
+*/
