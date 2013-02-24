@@ -13,6 +13,10 @@ var network = (function(){
 		return id;
 	};
 
+	view.updateId = function(){
+		id = location.hash.split("#").pop();
+	};
+
 	view.genNew = function(obj, success, failure){
 		$.post("/info", {
 			info: obj
