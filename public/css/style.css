@@ -151,23 +151,6 @@ li:active{
 }
 
 .user{
-<<<<<<< HEAD
-    position: absolute;
-    background: yellow;
-    border-radius: 5px;
-    border: 2px solid black;
-    top: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    background: white;
-    z-index: 1;
-}
-
-.error {
-    margin-left: 20%;
-    margin-top: 5%;
-=======
 	position: absolute;
 	background: yellow;
 	border-radius: 5px;
@@ -187,5 +170,4 @@ li:active{
 
 .user.tohide{
 	opacity: 0.2;
->>>>>>> 2a4236b5ee78574dd812a9b3c90137e764f030fc
 }
