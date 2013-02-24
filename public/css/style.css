@@ -9,7 +9,7 @@ html, body{
 }
 
 aside{
-	position: absolute;
+	position: 	absolute;
 	padding: 10px;
 	top: 0;
 	left: 0;
@@ -30,6 +30,9 @@ h1{
 
 .header{
 
+	width: 100px;
+	height: 100px; 
+	align: left;
 }
 
 /* member classes*/
