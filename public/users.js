@@ -43,9 +43,11 @@ var UserBar = function(userList, timetable){
 			}).click(function(){
 				if(editing == id){
 					timetable.hideUserView();
+					$(this).removeClass("editing");
 					editing = false;
 				}else if(!editing){
 					editing = id;
+					$(this).addClass("editing");
 					timetable.editUser(id);
 				}
 			});
