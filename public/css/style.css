@@ -11,8 +11,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -22,7 +22,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -87,13 +87,15 @@ header>img{
 }
 #header{
     background-color: #f7912d;
+    line-height: 1.5;
+    padding-left:0.3em;
     text-align: left;
     color: white;
 }
 
 .bottom {
     position: absolute;
-    height: 60px;
+    height: 80px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -102,6 +104,24 @@ header>img{
     -moz-border-sizing: border-box;
 }
 
+.footer{
+    position: absolute;
+    bottom: 41px;
+    right: 3em;
+    color:grey;
+    text-align:right;
+    font-size:80%;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: none;
+    cursor: auto;
+}
+a:link:active, a:visited:active {
+    color: inherit;
+    text-decoration:none;
+}
 /* People stuff */
 
 .add-box {
@@ -122,8 +142,8 @@ header>img{
 .add-box>input:focus {
     width: 100%;
     box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
-    -webkit-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6); 
-    -moz-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6); 
+    -webkit-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
+    -moz-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
     border: 1px solid rgba(247, 145, 45, 0.8);
 
     // 247 145 45
@@ -138,6 +158,22 @@ button {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     margin: 0em 0em 0.5em 0em;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -ms-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;ont-size: 0.9em;
+}
+
+
+button:hover {
+    background: #F9A23E;
+    color: white;
+    box-shadow: 0px 0px 2px grey;
+}
+
+button:active{
+	box-shadow: none;
 }
 
 button:hover{
@@ -165,11 +201,13 @@ button:hover{
     background-color: white;
     background-repeat: no-repeat;
     position: relative;
+    cursor: default;
 }
 
 .view-toggle {
     background: url('../eye.png') no-repeat left center;
     padding: 0 10px 0 5px;
+    cursor: pointer;
 }
 
 .view-toggle.toggled{
@@ -190,19 +228,16 @@ button:hover{
     right: 0.3em;
     cursor: pointer;
     top: 0.1em;
-    width: 20px;
+    bottom: 0.1em;
+    background: white;
+    display: block;
+    width: 1.2em;
     text-align: center;
-}
-
-.toremove:hover{
-	background-color: black;
-	color: white;
 }
 
 /* member classes*/
 
 #timetableView{
-    width: 100%;
     margin-left: 20%
 }
 
@@ -210,6 +245,11 @@ button:hover{
 
 .toShowButton{
     cursor: pointer;
+    background: url('../eye_b.png');
+    background-repeat: no-repeat;
+    height: 1em;
+    width: 1em;
+    margin: 0.5em;
 }
 
 #timetableView table{
@@ -228,6 +268,7 @@ button:hover{
     width: 2.4em;
     max-width: 2.4em;
     min-width: 2.4em;
+    vertical-align: middle;
 }
 
 .timetable td{
@@ -271,7 +312,7 @@ button:hover{
     text-align: center;
     line-height: 4em;
     font-weight: bold;
-    color: white;
+    color: grey;
     text-shadow: 0 0 5px black;
     -webkit-transition-duration: 0.2s;
     -moz-transition-duration: 0.2s;
@@ -310,7 +351,7 @@ button:hover{
     -ms-transition-duration: 0.2s;
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;ont-size: 0.9em;
-}	
+}
 
 .user:hover{
     z-index: 2;

@@ -3,6 +3,34 @@
  */
 
 var TimeTable = function(div, moduleInfo){
+    (function(){
+        var current = new Date();
+        var now = current.getFullYear();
+        var next = now + 1;
+        function check(date,first,second) {
+            if(date.getMonth()<=4){
+                return first-1 + "/" + first;
+            }
+            else if (date.getMonth() >=8){
+                return first + "/" + second;
+                } else {
+                return first-1 + "/" + first + "End.";
+            }
+        }
+
+        function sem(date) {
+            if(date.getMonth()<=4){
+                return "1";
+            }
+            else if (date.getMonth() >=8){
+                return 2;
+                } else {
+                return "(Special)";
+            }
+        }
+
+        $(div).find("#header").html("AY" + check(current,now,next) + " | Semester " + sem(current));
+    })();
     var view = {};
 
     var moduleInfo = {
@@ -75,7 +103,6 @@ var TimeTable = function(div, moduleInfo){
     };
 
     function addToAggregate(slot){
-        console.trace();
         var i = slot.day;
         for(var j = slot.start; j < slot.start + slot.duration; j++){
             aggregateInfo[i][j]++;
@@ -106,7 +133,6 @@ var TimeTable = function(div, moduleInfo){
         elm.className = "user";
         elm.style.display = "none";
         var toShowButton = this.toShowButton = document.createElement("div");
-        toShowButton.innerHTML = "o";
         toShowButton.className = "toShowButton";
         var self = this;
         toShowButton.onclick = function(){

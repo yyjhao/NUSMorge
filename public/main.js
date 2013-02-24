@@ -3,7 +3,6 @@ $(document).ready(function(){
 	window.t = timetable;
 
 	var ini = function(info){
-		console.log(info);
 		info = info || [];
 		var userBar = UserBar(document.querySelector("#people-list"), timetable, info);
 		var nameInput = $("#username_input"),
