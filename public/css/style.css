@@ -38,5 +38,27 @@ li:hover{
 li:active{
 	background-color: 
 
-};
+}
 
+/* time table stuff */
+
+.timetable-cell{
+	position: relative;
+}
+
+.aggregate-left, .aggregate-right{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+}
+
+.aggregate-left{
+	left: 0;
+	background: purple;
+}
+
+.aggregate-right{
+	background: green;
+	left: 50%;
+}

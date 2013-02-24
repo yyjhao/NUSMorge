@@ -33,13 +33,25 @@ var timeTable = function(div){
 	view.hideUserView = hideUserView;
 
 	// id: [hidden: bool, info: {name, timeslot, isHidden}]
-	var userInfo = {};
+	var userInfo = {},
+		userCount = 0;
+
+	var aggregateInfo = (function(){
+		var re = [];
+		for(var i = 0; i < 5; i++){
+			re.push([]);
+			for(var j = 0; j < 32; j++){
+				re[i].push(0);
+			}
+		}
+		return re;
+	})();
 
 	function switchToUserView(info, edit){
-		
+
 	}
 
-	function updateArregateView(arregateInfo){
+	function updateArregateView(){
 
 	}
 
@@ -89,11 +101,17 @@ var timeTable = function(div){
 			row.appendChild(dayheader);
 			for(var j = 0; j < 16; j++){
 				var cell = document.createElement("td");
+				cell.className = "timetable-cell";
 				var innerCell1 = document.createElement("div"),
-					innerCell2 = document.createElement("div");
+					innerCell2 = document.createElement("div"),
+					innerCell3 = document.createElement("div");
+				innerCell1.className = "aggregate-left";
+				innerCell2.className = "aggregate-right";
+				innerCell3.className = "user";
 				cell.appendChild(innerCell1);
 				cell.appendChild(innerCell2);
-				cells[i].push([innerCell1, innerCell2]);
+				cell.appendChild(innerCell3);
+				cells[i].push([innerCell1, innerCell2, innerCell3]);
 				row.appendChild(cell);
 			}
 			tbody.appendChild(row);
