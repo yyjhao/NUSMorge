@@ -114,7 +114,7 @@ a:link, a:visited {
     cursor: auto;
 }
 a:link:active, a:visited:active {
-    color: inherite;
+    color: inherit;
     text-decoration:none;
 }
 /* People stuff */
