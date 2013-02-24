@@ -19,6 +19,8 @@ var GenLinkManager = function(area, getObj, syncArea, sync){
 				network.updateId();
 				gotArea.show();
 				text.val(location);
+			}, function(){
+				alert("Failed to generate the link!\nIs your morge empty?");
 			});
 		});
 	}
