@@ -153,15 +153,15 @@ button {
     position: relative;
 }
 
-.view-toggle{
-    vertical-align: middle;
-    height: 0.3em;
-    width: 0.3em;
-    display: inline-block;
-    margin-right: 0.5em;
-    background: #F89D9D;
+.view-toggle {
+    background: url('../eye.png') no-repeat left center;
+    padding: 0 10px 0 5px;
 }
 
+.view-toggle.toggled{
+    background: url('../eye_b.png') no-repeat left center;
+    padding: 0 10px 0 5px;
+}
 
 #people-list>li:hover {
     background-color: rgba(190,190,190,0.4);
@@ -185,10 +185,6 @@ button {
 	color: white;
 }
 
-.view-toggle.toggled{
-    opacity: 1;
-}
-
 /* member classes*/
 
 #timetableView{
@@ -206,6 +202,14 @@ button {
     border-collapse:collapse;
 }
 
+#timetableView>#header{
+	margin-bottom: 1.5em;
+}
+
+.timetable tr:hover>td{
+	background: lightgrey;
+}
+
 .timetable th{
     width: 2.4em;
     max-width: 2.4em;
@@ -220,6 +224,12 @@ button {
     height: 5em;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -ms-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
 }
 
 .timeheader{
@@ -244,6 +254,16 @@ button {
     position: absolute;
     top: 0;
     bottom: 0;
+    text-align: center;
+    line-height: 4em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 5px black;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -ms-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;ont-size: 0.9em;
 }
 
 .aggregate-left{
@@ -268,6 +288,14 @@ button {
     background: white;
     z-index: 1;
     opacity: 0.5;
+    box-shadow: 2px 2px 4px black;
+    font-weight: bold;
+    font-size: 0.9em;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -ms-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;ont-size: 0.9em;
 }	
 
 .user:hover{
@@ -281,7 +309,7 @@ button {
 
 .user.tohide{
     opacity: 0.4;
-
+	box-shadow: none;
 }
 
 .error {

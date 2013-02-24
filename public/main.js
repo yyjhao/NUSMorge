@@ -9,6 +9,7 @@ $(document).ready(function(){
 		var nameInput = $("#username_input"),
 			urlInput = $("#url_input"),
 			inputBut = $("#adduser");
+		nameInput.focus();
 		inputBut.click(function(){
 			if(!nameInput.val|| (!urlInput.val()))return;
 			userBar.addUser(nameInput.val(), urlInput.val(), function(){
