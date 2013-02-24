@@ -163,6 +163,9 @@ li:active{
 	z-index: 1;
 	opacity: 0.5;
 }
+.user:hover{
+	z-index: 2;
+}
 
 .user.editable{
 	opacity: 1;
