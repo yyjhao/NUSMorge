@@ -1,65 +1,127 @@
-
-html, body{
-    height: 100%;
-    padding: 0;
+/**
+ *  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ *   * http://cssreset.com
+ *    */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
-    font-family: "Calibri";
-    font-weight: normal;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+html, body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.bottom{
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	padding: 1em;
-}
-
-aside{
-    position: 	absolute;
+aside {
+    float: left;
     padding: 10px;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-right: 0px;
-    bottom: 0;
     width: 20%;
     overflow-y: auto;
-    background: white;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
 
-h1{
+header {
+    display: block;
+    margin: 1em auto;
+}
+
+header>h1 {
+    display: block;
+    margin: auto auto;
+    text-align: center;
     font-size: 30px;
-    font-weight: bold;
-    margin: 0.25em;
-    margin-left: 10px;
 }
 
 header>img{
-	display: block;
-	margin-left: 17px;
+    display: block;
+    margin: auto auto;
 }
 
 /* member classes*/
 .name {
     
 }
+#header{
+	margin-left: 20%;
+	background-color: f7912d;
+	text-align: right;
+}
 
-#timetableView{
-    margin-left: 20%;
-    background: white;
-    height: 100%;
+.bottom {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 /* People stuff */
 
 .add-box>input {
-    width: 35%;
+    outline: none;
+    width: 60%;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.add-box>input:focus {
+    width: 100%;
+    box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
+    -webkit-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6); 
+    -moz-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6); 
+    border: 1px solid rgba(247, 145, 45, 0.8);
+
+    // 247 145 45
+    // f7912d
+}
+
+button {
+    //border: 1px solid #777777;
+    border: 1px solid #DDDDDD;
+    background: #F7912D;
+    color: white;
+    padding: 4px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
 }
 
 #people-list{
@@ -81,8 +143,8 @@ header>img{
 }
 
 #people-list>li:hover {
-	background-color: sienna;
-	color: white;
+    background-color: sienna;
+    color: white;
 }
 
 .toremove{
@@ -93,21 +155,44 @@ header>img{
 }
 
 .view-toggle{
-	height: 0.5em;
-	width: 0.5em;
-	display: inline-block;
-	opacity: 0.5;
-	background: black;
+    /*
+    height: 0.5em;
+    width: 0.5em;
+    display: inline-block;
+    opacity: 0.5;
+    background: black;
+     */
+}
+
+#people-list li .name:before {
+    left:2px;
+    border:8px solid transparent;
+    border-width:8px 12px;
+    border-left-color:#c55500;
+    margin-top:-8px;
+    background:transparent;
 }
 
 .view-toggle.toggled{
-	opacity: 1;
+    opacity: 1;
+}
+
+
+/* member classes*/
+.name {
+
+}
+
+#timetableView{
+    margin-left: 20%;
+    background: white;
+    height: 100%;
 }
 
 /* time table stuff */
 
 .toShowButton{
-	cursor: pointer;
+    cursor: pointer;
 }
 
 #timetableView table{
@@ -159,30 +244,30 @@ header>img{
 }
 
 .user{
-	position: absolute;
-	background: yellow;
-	border-radius: 5px;
-	border: 1px solid black;
-	top: 0;
-	bottom: 0;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	background: white;
-	z-index: 1;
-	opacity: 0.5;
+    position: absolute;
+    background: yellow;
+    border-radius: 5px;
+    border: 1px solid black;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: white;
+    z-index: 1;
+    opacity: 0.5;
 }	
 
 .user:hover{
-	z-index: 2;
+    z-index: 2;
 }
 
 .user.editable{
-	opacity: 0.7;
+    opacity: 0.7;
 
 }
 
 .user.tohide{
-	opacity: 0.1;
+    opacity: 0.1;
 
 }
 
@@ -192,28 +277,28 @@ header>img{
 }
 
 .overlay{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0,0,0,0.5);
-	z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
 #message{
-	position: absolute;
-	height: 14em;
-	width: 20em;
-	background: white;
-	top: 50%;
-	left: 50%;
-	margin-left: -10em;
-	margin-top: -7em;
-	box-shadow: 0 0 10px black;
-	border-radius: 10px;
-	padding: 1.5em;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	text-align: center;
+    position: absolute;
+    height: 14em;
+    width: 20em;
+    background: white;
+    top: 50%;
+    left: 50%;
+    margin-left: -10em;
+    margin-top: -7em;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    padding: 1.5em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: center;
 }
