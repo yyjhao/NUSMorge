@@ -11,30 +11,32 @@
         <script src="network.js"></script>
         <script src="genLinkManager.js"></script>
         <script src="main.js"></script>
+        <script src="exploding_shit.js"></script>
     </head>
     <body>
         <aside>
         <header>
-                <img src="ico.png">
-                <h1>NUSMorge</h1>
+        <img src="ico.png">
+        <h1>NUSMorge</h1>
         </header>
         <div class="add-box">
             <input type="text" name="username" id="username_input" placeholder="Enter name">
             <input type="text" name="url" id="url_input" placeholder="Enter url">
-            <button id="adduser">Add</button>
         </div>
+        <button id="adduser">Add</button>
+        <button onclick="explode()">Fuck School!</button>
 
         <ul id="people-list">
         </ul>
 
         <div class='bottom'>
-                <div id="gen-link-area">
-                        <button id='genLinkButton'>Generate a link</button>
-                        <div class='gotLink'>
-                                Your link is
-                                <input type='text' readonly value="asdf"></input>
-                        </div>
+            <div id="gen-link-area">
+                <button id='genLinkButton'>Generate a link</button>
+                <div class='gotLink'>
+                    Your link is
+                    <input type='text' readonly value="asdf"></input>
                 </div>
+            </div>
         </div>
         </aside>
         <div id="timetableView">
