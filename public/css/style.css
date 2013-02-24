@@ -202,11 +202,15 @@ button {
 
 .timetable th{
     width: 2.4em;
+    max-width: 2.4em;
+    min-width: 2.4em;
 }
 
 .timetable td{
     border: 1px solid grey;
     width: 4em;
+    min-width: 4em;
+    max-width: 4em;
     height: 5em;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -219,6 +223,8 @@ button {
 .timeheader th{
     border: 3px solid transparent;
     width: 4em;
+    min-width: 4em;
+    max-width: 4em;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     text-align: left;
