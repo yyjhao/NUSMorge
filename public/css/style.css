@@ -148,11 +148,19 @@ header>img{
     right: 0;
 }
 
+.aggregate-left:hover{
+	background: yellow;
+}
+
+.aggregate-right:hover{
+	background:orange;
+}
+
 .user{
 	position: absolute;
 	background: yellow;
 	border-radius: 5px;
-	border: 2px solid black;
+	border: 1px solid black;
 	top: 0;
 	bottom: 0;
 	box-sizing: border-box;
@@ -161,16 +169,19 @@ header>img{
 	z-index: 1;
 	opacity: 0.5;
 }	
+
 .user:hover{
 	z-index: 2;
 }
 
 .user.editable{
 	opacity: 1;
+
 }
 
 .user.tohide{
-	opacity: 0.2;
+	opacity: 0.1;
+
 }
 
 .error {
