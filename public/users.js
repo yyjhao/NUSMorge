@@ -44,11 +44,15 @@ var UserBar = function(userList, timetable, userInfo){
 		});
 	};
 
-	view.update = function(){
+	var getUserInfo = view.getUserInfo = function(){
 		var info = timetable.getUserInfo();
-		var data = users.map(function(u){
+		return users.map(function(u){
 			return info[u.id];
 		});
+	};
+
+	view.update = function(){
+		var data = getUserInfo();
 		network.postUpdate(data, function(){
 			alert("updated");
 		});
@@ -118,7 +122,8 @@ var UserBar = function(userList, timetable, userInfo){
 					editing = false;
 				}
 				userList.removeChild(elm);
-				users.splice(users.indexOf(user));
+				users.splice(users.indexOf(user), 1);
+				console.log(users);
 			}
 			e.preventDefault();
 			return false;
@@ -140,6 +145,7 @@ var UserBar = function(userList, timetable, userInfo){
 		});
 		$(userList).prepend(elm);
 	}
+	console.log(userInfo);
 	userInfo.forEach(function(u){
 		u.hidden = (u.hidden === "true");
 		u.info.forEach(function(inf){

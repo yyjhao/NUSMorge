@@ -18,12 +18,15 @@ $(document).ready(function(){
 		});
 
 		var genLinkManger = GenLinkManager($("#gen-link-area"), function(){
-			return timetable.getUserInfo();
+			return userBar.getUserInfo();
+		}, $("#sync-area"), function(){
+			userBar.update();
 		});
 	};
 
 	if(network.getId()){
 		network.getInfo(function(res){
+			console.log("res", res);
 			ini(res.info);
 		});
 	}else{

@@ -26,7 +26,6 @@ exports.add = function(req, res) {
     var id = (new Date()).getTime().toString(36);
     var info = req.body.info;
 
-    console.log(info['a_hdkk0h5d'].info[0])
 
     db.find(id, function(col) {
         timetable = {"id": id, "info": info};
