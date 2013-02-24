@@ -71,11 +71,14 @@ var timeTable = function(div){
 	var cells = (function genTable(){
 		var table = document.createElement("table"),
 			tbody = document.createElement("tbody");
+		table.className = "timetable";
 		var cells = [];
 		var timeHeader = document.createElement("tbody"),
-			hr = document.createElement("tr");
+			hr = document.createElement("tr"),
+			timeHeaderTable = document.createElement("table");
+		timeHeaderTable.className = "timeheader";
 		timeHeader.appendChild(hr);
-		table.appendChild(timeHeader);
+		timeHeaderTable.appendChild(timeHeader);
 		table.appendChild(tbody);
 		for(var i = 0; i < 17; i++){
 			var hcell = document.createElement("th");
@@ -116,6 +119,7 @@ var timeTable = function(div){
 			}
 			tbody.appendChild(row);
 		}
+		div.appendChild(timeHeaderTable);
 		div.appendChild(table);
 		return cells;
 	})();
