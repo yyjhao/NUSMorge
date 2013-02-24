@@ -353,6 +353,13 @@ button:hover{
     transition-duration: 0.2s;ont-size: 0.9em;
 }
 
+.user>span{
+	text-overflow: ellipsis;
+	height: 50%;
+	overflow: hidden;
+	display: block;
+}
+
 .user:hover{
     z-index: 2;
 }
