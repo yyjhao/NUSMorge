@@ -16,7 +16,6 @@ var UserBar = function(userList, timetable, userInfo){
 		}else{
 			success(m);
 		}
-		
 	}
 
 	var view = {};
@@ -38,7 +37,12 @@ var UserBar = function(userList, timetable, userInfo){
 	};
 	
 	function addUserWithInfo(user){
-		timetable.addUser(user.id, user.modules);
+		timetable.addUser(user.id, user.modules, user.hidden);
+		if(!user.name){
+			var splits = user.id.split("_");
+			splits.pop();
+			user.name = splits.join("_");
+		}
 		var elm = document.createElement("li"),
 			viewToggle = document.createElement("span");
 			nameDisplay = document.createElement("span"),

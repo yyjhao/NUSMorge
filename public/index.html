@@ -8,10 +8,18 @@
         <script src="lib/kimbo.min.js"></script>
         <script src="users.js"></script>
         <script src="timetable.js"></script>
+        <script src="network.js"></script>
         <script src="main.js"></script>
     </head>
     <body>
-        <div class="top">adsa</div>
+
+        <div class="overlay" hidden>
+                <div id="message">
+                        <div class='content'>
+                                loading...
+                        </div>
+                </div>
+        </div>
         <aside>
         <header>
                 <img src="ico.png">
@@ -25,6 +33,10 @@
 
         <ul id="people-list">
         </ul>
+
+        <div class='bottom'>
+                <button id='genLinkButton'>Generate a link</button>
+        </div>
         </aside>
         <div id="timetableView">
         </div>
