@@ -1,21 +1,40 @@
+/*global attributes*/
+
 html, body{
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	font-family: "Calibri";
 }
 aside{
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 20px;
+	top: 20px;
 	bottom: 0;
 	width: 20%;
 	overflow-y: auto;
-	background: grey;
+	background: white;
 }
+
+h1{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.header{
+
+}
+
+
+.postbox {
+
+
+}
+
 
 #timetableView{
 	margin-left: 20%;
-	background: red;
+	background: white;
 	height: 100%;
 }
 
@@ -51,7 +70,7 @@ li:active{
 }
 
 .timetable td{
-	border: 3px solid grey;
+	border: 1px solid grey;
 	width: 4em;
 	height: 5em;
 	box-sizing: border-box;
@@ -83,9 +102,11 @@ li:active{
 .aggregate-left{
 	left: 0;
 	right: 50%;
+	background: brown;
 }
 
 .aggregate-right{
+	background: sienna;
 	left: 50%;
 	right: 0;
 }
@@ -94,11 +115,11 @@ li:active{
 	position: absolute;
 	background: yellow;
 	border-radius: 5px;
-	border: 2px solid pink;
+	border: 2px solid black;
 	top: 0;
 	bottom: 0;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	background: red;
+	background: white;
 	z-index: 1;
 }

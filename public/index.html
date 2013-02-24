@@ -1,23 +1,35 @@
 <html>
-<head>
-        <title>NUS Morge</title>
+    <head>
+        <title>NUSMorge</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="lib/kimbo.min.js"></script>
         <script src="users.js"></script>
         <script src="timetable.js"></script>
         <script src="main.js"></script>
-</head>
-<body>
+    </head>
+    <body>
         <aside>
-                <ul id="people-list">
-                        <li class="toedit"></li>
-                        <li class="member">
-                                <span class="name">asdsad</span>
-                                <span class="url">asdas</span>
-                        </li>
-                </ul>
+        <div class="header">
+                <img src = "ico.png" width=20px height=20px href="#" alt="NUSMorge">
+                <h1>NUSMorge</h1>       
+         </div>
+        <div class="postbox">
+            <form name="new_morge" method="post" action="/info">
+                <input type="text" name="username" id="username_input" placeholder="Enter name">
+                <input type="text" name="morge_id" id="morge_id_input" placeholder="Enter url">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+
+        <ul id="people-list">
+            <li class="toedit"></li>
+            <li class="member">
+                    <span class="name">asdsad</span>
+                    <span class="url">asdas</span>
+            </li>
+        </ul>
         </aside>
         <div id="timetableView">
         </div>
-</body>
+    </body>
 </html>
