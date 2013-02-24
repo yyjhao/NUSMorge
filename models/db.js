@@ -1,29 +1,38 @@
 var dbUrl = "morge";
-var collections = ["morge_id"];
+var collections = ["timetables"];
 
 // Connect to the db
 var db = require('mongojs').connect(dbUrl, collections);
 
-
-exports.save = function(req, res) {
-    db.morge_id.save({
-            "id": req.params.morge_id,
-            "rep" : req.params.rep
-            },
-        function(err, saved) {
-            if( err || !saved ) console.log("morge not saved");
-            else console.log("morge saved");
-        });
-    res.redirect("/");
+// finds the collection with "id" : morge_id
+// then runs callback with the reply
+exports.find = function(id, callback) {
+    var key = {};
+    if (id != null) key.id = id;
+    db.timetables.find(key, function(err, col) {
+        if (err) throw err;
+        callback(col);
+    });
 };
 
-// finds the collection with a
-// id : req.params.morge_id
-exports.find = function(req, res) {
-    db.morge_id.find({"id" : req.params.morge_id},
-        function(err, docs) {
-            console.log(docs);
-            console.log("find");
-            res.send(docs);
+exports.save = function(timetable, callback) {
+    db.timetables.save({
+        "id": timetable.id,
+        "info" : timetable.info
+    },
+    function(err, saved) {
+        if (err) throw err;
+        callback(timetable.id);
+    });
+};
+
+exports.update = function(timetable, callback) {
+    db.timetables.update({
+        "id": timetable.id
+    }, {
+        "info": timetable.info
+    }, function(err) {
+        if (err) throw err;
+        callback();
     });
 };
