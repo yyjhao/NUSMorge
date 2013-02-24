@@ -124,11 +124,9 @@ li:active{
 .aggregate-left{
 	left: 0;
 	right: 50%;
-	background: brown;
 }
 
 .aggregate-right{
-	background: sienna;
 	left: 50%;
 	right: 0;
 }
