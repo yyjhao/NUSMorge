@@ -1,11 +1,40 @@
 /*
- * a few utility functions for the win
+ * a few utility functions for network stuff
+ * also remembers the ids
  */
 
 var network = (function(){
 	var view = {};
 
+	var idPool = (function(){
+		var pool = {};
+		var store = JSON.parse(localStorage["morgeids"]) || {};
+		var last = localStorage["morgelastid"];
+		pool.add = function(id){
+			if(store[id])return;
+			store[id] = true;
+			last = id;
+			save();
+		};
+		pool.getIds = function(){
+			return Object.keys(store);
+		};
+		pool.getLast = function(){
+			return last;
+		};
+		function save(){
+			localStorage["morgeids"] = JSON.stringify(store);
+			localStorage["morgelastid"] = last;
+		}
+		return pool;
+	})();
+
+	view.getIdPool = function(){
+		return idPool;
+	};
+
 	var id = location.hash.split("#").pop();
+	idPool.add(id);
 
 	if(id === "")id = null;
 
@@ -15,6 +44,7 @@ var network = (function(){
 
 	view.updateId = function(){
 		id = location.hash.split("#").pop();
+		idPool.add(id);
 	};
 
 	view.genNew = function(obj, success, failure){

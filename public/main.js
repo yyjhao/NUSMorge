@@ -1,6 +1,10 @@
 $(document).ready(function(){
 	var timetable = TimeTable(document.querySelector("#timetableView"));
 	window.t = timetable;
+	if(!network.getId() && network.getIdPool().getLast()){
+		location.hash = network.getIdPool().getLast();
+		network.updateId();
+	}
 
 	var ini = function(info){
 		info = info || [];
@@ -38,4 +42,13 @@ $(document).ready(function(){
 	}else{
 		ini();
 	}
+
+	//hacky, temporary solution
+	$("#forgot").click(function(){
+		var ids = network.getIdPool().getIds();
+		document.write(ids.map(function(id){
+			var l = location.origin + "/#" + id;
+			return l.link(l);
+		}).join("<br/>"));
+	});
 });
