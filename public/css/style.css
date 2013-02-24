@@ -8,6 +8,16 @@ html, body{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.bottom{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 1em;
+}
+
 aside{
     position: 	absolute;
     padding: 10px;
@@ -187,4 +197,31 @@ header>img{
 .error {
     margin-left: 20%;
     margin-top: 5%;
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 10;
+}
+
+#message{
+	position: absolute;
+	height: 14em;
+	width: 20em;
+	background: white;
+	top: 50%;
+	left: 50%;
+	margin-left: -10em;
+	margin-top: -7em;
+	box-shadow: 0 0 10px black;
+	border-radius: 10px;
+	padding: 1.5em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	text-align: center;
 }
