@@ -82,6 +82,7 @@ li:active{
     position: absolute;
     right: 1em;
     cursor: pointer;
+    top: 0;
 }
 
 .view-toggle{

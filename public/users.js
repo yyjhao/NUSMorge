@@ -27,7 +27,7 @@ var UserBar = function(userList, timetable, userInfo){
 		var user = {};
 		user.hidden = false;
 		parseUrl(url, function(mods){
-			var id = name + "_" + (new Date());
+			var id = name + "_" + (new Date()).getTime();
 			timetable.addUser(id, ["a", "b"]);
 			var elm = document.createElement("li"),
 				viewToggle = document.createElement("span");
