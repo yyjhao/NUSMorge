@@ -51,16 +51,16 @@ html, body {
 
 aside {
     float: left;
-    padding: 10px;
+    padding: 1em;
     width: 20%;
-    overflow-y: auto;
+    height:100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
 
 header {
     display: block;
-    margin: 1em auto;
+    margin: 0 auto 1em auto;
 }
 
 header>h1 {
@@ -89,19 +89,23 @@ header>img{
 }
 
 .bottom {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+    margin-bottom: 0px;
 }
 
 /* People stuff */
 
+.add-box {
+}
+
 .add-box>input {
     outline: none;
     width: 60%;
+    padding-left: 0.3em;
     transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5em;
 }
 
 .add-box>input:focus {
@@ -116,78 +120,62 @@ header>img{
 }
 
 button {
-    //border: 1px solid #777777;
-    border: 1px solid #DDDDDD;
+    border: 0px solid #DDDDDD;
     background: #F7912D;
     color: white;
-    padding: 4px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
+    padding: 0.4em;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin: 0em 0em 0.5em 0em;
 }
 
 #people-list{
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    min-height: 7em;
+    max-height: 7em;
+    margin: 0em 0em 0.5em 0em;
+    overflow-y: auto;
 }
 
-#people-list>li, .add-box{
+#people-list>li {
     padding: 5px;
     background-color: white;
     background-repeat: no-repeat;
     position: relative;
 }
 
-
-#people-list>li.editing{
-    background-color: brown;
+.view-toggle{
+    vertical-align: middle;
+    height: 0.3em;
+    width: 0.3em;
+    display: inline-block;
+    margin-right: 0.5em;
+    background: #F89D9D;
 }
 
+
 #people-list>li:hover {
-    background-color: sienna;
-    color: white;
+    background-color: rgba(190,190,190,0.4);
+}
+
+#people-list>li.editing{
+    background-color: rgba(170,170,170,0.7);
 }
 
 .toremove{
     position: absolute;
-    right: 1em;
+    right: 0.3em;
     cursor: pointer;
-    top: 0;
-}
-
-.view-toggle{
-    /*
-    height: 0.5em;
-    width: 0.5em;
-    display: inline-block;
-    opacity: 0.5;
-    background: black;
-     */
-}
-
-#people-list li .name:before {
-    left:2px;
-    border:8px solid transparent;
-    border-width:8px 12px;
-    border-left-color:#c55500;
-    margin-top:-8px;
-    background:transparent;
+    top: 0.1em;
 }
 
 .view-toggle.toggled{
     opacity: 1;
 }
 
-
 /* member classes*/
-.name {
-
-}
 
 #timetableView{
-    margin-left: 20%;
-    background: white;
-    height: 100%;
+    margin-left: 20%
 }
 
 /* time table stuff */
