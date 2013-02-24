@@ -151,11 +151,13 @@ button {
     background-color: white;
     background-repeat: no-repeat;
     position: relative;
+    cursor: default;
 }
 
 .view-toggle {
     background: url('../eye.png') no-repeat left center;
     padding: 0 10px 0 5px;
+    cursor: pointer;
 }
 
 .view-toggle.toggled{
@@ -176,6 +178,8 @@ button {
     right: 0.3em;
     cursor: pointer;
     top: 0.1em;
+    padding: 1px;
+    background: white;
 }
 
 /* member classes*/
@@ -189,6 +193,11 @@ button {
 
 .toShowButton{
     cursor: pointer;
+    background: url('../eye_b.png');
+    background-repeat: no-repeat;
+    height: 1em;
+    width: 1em;
+    margin: 0.5em;
 }
 
 #timetableView table{

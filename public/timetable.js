@@ -106,7 +106,6 @@ var TimeTable = function(div, moduleInfo){
         elm.className = "user";
         elm.style.display = "none";
         var toShowButton = this.toShowButton = document.createElement("div");
-        toShowButton.innerHTML = "o";
         toShowButton.className = "toShowButton";
         var self = this;
         toShowButton.onclick = function(){
