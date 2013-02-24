@@ -8,8 +8,13 @@ var network = (function(){
 
 	var idPool = (function(){
 		var pool = {};
-		var store = JSON.parse(localStorage["morgeids"]) || {};
-		var last = localStorage["morgelastid"];
+		var store, last;
+		try{
+			store = JSON.parse(localStorage["morgeids"]) || {};
+		}catch(e){
+			store = {};
+		}
+		last = localStorage["morgelastid"];
 		pool.add = function(id){
 			if(store[id])return;
 			store[id] = true;
