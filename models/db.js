@@ -9,7 +9,7 @@ var db = require('mongojs').connect(dbUrl, collections);
 exports.find = function(id, success) {
     var key = {};
     if (id != null) key.id = id;
-    db.timetables.find(key, function(err, col) {
+    db.timetables.findOne(key, function(err, col) {
         if (err) throw err;
         success(col);
     });
@@ -30,7 +30,7 @@ exports.update = function(timetable, success) {
     db.timetables.update({
         "id": timetable.id
     }, {
-        "info": timetable.info
+        $set: { "info": timetable.info }
     }, function(err) {
         if (err) throw err;
         success();

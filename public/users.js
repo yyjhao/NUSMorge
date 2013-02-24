@@ -49,6 +49,9 @@ var UserBar = function(userList, timetable, userInfo){
 		var data = users.map(function(u){
 			return info[u.id];
 		});
+		network.postUpdate(data, function(){
+			alert("updated");
+		});
 	};
 
 	function slotsToInfo(slots){
@@ -138,6 +141,14 @@ var UserBar = function(userList, timetable, userInfo){
 		$(userList).prepend(elm);
 	}
 	userInfo.forEach(function(u){
+		u.hidden = (u.hidden === "true");
+		u.info.forEach(function(inf){
+			inf.isHidden = (inf.isHidden === "true");
+			var timeSlot = inf.timeSlot;
+			timeSlot.day = parseInt(timeSlot.day, 10);
+			timeSlot.start = parseInt(timeSlot.start, 10);
+			timeSlot.duration = parseInt(timeSlot.duration, 10);
+		});
 		addUserWithInfo(u);
 	});
 	return view;

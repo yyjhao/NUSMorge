@@ -30,7 +30,7 @@ var network = (function(){
 	};
 
 	view.postUpdate = function(newObj, success, failure){
-		jQuery.ajax({
+		$.ajax({
 			type: 'PUT',
 			url: "/info",
 			data: {
@@ -39,9 +39,9 @@ var network = (function(){
 			},
 			success: function(re){
 				if(re.error){
-					failure();
+					failure && failure();
 				}else{
-					success();
+					success && success();
 				}
 			}
 		});
@@ -51,7 +51,7 @@ var network = (function(){
 		if(!id)callback({});
 		$.get("/info/" + id, function(re){
 			callback(re.info);
-		}, "json");
+		});
 	};
 
 	return view;
