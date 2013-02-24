@@ -206,7 +206,7 @@ var TimeTable = function(div, moduleInfo){
 
         for(var i = 0; i < 5; i++){
             for(var j = 0; j < 32; j++){
-                if (aggregateInfo[i][j] == 0) color = "#FFFFFF";
+                if (aggregateInfo[i][j] == 0) color = "transparent";
                 else color = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 5)];
                 cells[i][j / 2 | 0][j % 2].style.background = color;
                 cells[i][j / 2 | 0][j % 2].innerHTML = aggregateInfo[i][j] || "";
