@@ -50,7 +50,7 @@ var TimeTable = function(div, moduleInfo){
 
 	function showSlot(slot){
 		if(!slot.isHidden)return;
-		slot.isHdden = true;
+		slot.isHidden = false;
 		addToAggregate(slot.timeSlot);
 	}
 
@@ -113,7 +113,7 @@ var TimeTable = function(div, moduleInfo){
 		toShowButton.className = "toShowButton";
 		var self = this;
 		toShowButton.onclick = function(){
-			$(self.elm).toogleClass("toHide");
+			$(self.elm).toggleClass("toHide");
 			self.toggleShowHide();
 		};
 		elm.appendChild(toShowButton);
@@ -124,13 +124,14 @@ var TimeTable = function(div, moduleInfo){
 		this.$elm = $(this.elm);
 	}
 
-	UserTimeSlotDisplay.prototype.setSlot = function(timeSlot, editable){
+	UserTimeSlotDisplay.prototype.setSlot = function(s, editable){
+		var timeSlot = s.timeSlot;
 		this.content.innerHTML = timeSlot.name;
 		this.setHidden(timeSlot.isHidden, true);
 		this.elm.style.width = 100 * timeSlot.duration / 2 + "%";
 		if(timeSlot.start % 2)this.elm.style.left = "50%";
 		else this.elm.style.left = "0";
-		this.slot = timeSlot;
+		this.slot = s;
 		if(editable){
 			this.$elm.addClass("editable");
 		}else{
@@ -160,12 +161,13 @@ var TimeTable = function(div, moduleInfo){
 		}else{
 			showSlot(this.slot);
 		}
+		updateAggregateView();
 	};
 
 	// id: {hidden: bool, info: [{name, timeSlot, timeSlotString, isHidden}]}
 	var userInfo = {},
 		userCount = 0,
-		curUserView;
+		curUserView = null;
 
 	var aggregateInfo = (function(){
 		var re = [];
@@ -183,13 +185,14 @@ var TimeTable = function(div, moduleInfo){
 			hideUserView();
 		}
 		info.info.forEach(function(s){
-			activateSlot(s.timeSlot, edit);
+			activateSlot(s, edit);
 		});
 	}
 
-	function activateSlot(timeslot, edit){
+	function activateSlot(s, edit){
+		var timeslot = s.timeSlot;
 		var display = cells[timeslot.day][timeslot.start / 2 | 0][2];
-		display.setSlot(timeslot, edit);
+		display.setSlot(s, edit);
 		display.elm.style.display = "block";
 	}
 
