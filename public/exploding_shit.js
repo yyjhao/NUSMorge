@@ -1,14 +1,12 @@
-var moveit = function(object) {
-    object.style.position = "absolute";
-    object.style.top = Math.random()*500 + "px";
-    object.style.left = Math.random()*800 + "px";
+var moveit = function() {
+    this.style.position = "absolute";
+    this.style.top = Math.random()*500 + "px";
+    this.style.left = Math.random()*800 + "px";
+    this.style.webkitTransitionDuration = "1s";
 };
 
 var moveall = function() {
-    var tds = document.getElementsByTagName("td");
-    for (var i in tds) {
-        moveit(tds[i]);
-    }
+    $("td").each(moveit);
 }
 
 var explode = function() {
@@ -17,7 +15,13 @@ var explode = function() {
        body[0].style.color = "blue";
        */
     //setInterval(function(){ alert("hello")}, 1000);
-    setInterval(moveall(), 2000);
+    $("td").css({
+        position: "absolute",
+        top: 0,
+        left: 0,
+        webkitTransitionDuration: "1s"
+    });
+    setInterval(moveall, 2000);
     /*
     setInterval(function(tds) {
         for (var i in tds) {
