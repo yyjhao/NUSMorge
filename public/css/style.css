@@ -13,8 +13,81 @@ aside{
 	background: grey;
 }
 
-#timetable{
+#timetableView{
 	margin-left: 20%;
 	background: red;
 	height: 100%;
+}
+
+ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul li {
+
+background-color: white;
+background-repeat: no-repeat;
+}
+
+li:hover{
+	background-color: yellow;
+}
+
+li:active{
+	background-color: 
+
+}
+
+/* time table stuff */
+
+#timetableView table{
+	border-collapse:collapse;
+}
+
+.timetable th{
+	width: 2.4em;
+}
+
+.timetable td{
+	border: 3px solid grey;
+	width: 4em;
+	height: 5em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.timeheader{
+	margin-left: 1.2em;
+}
+
+.timeheader th{
+	border: 3px solid transparent;
+	width: 4em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	text-align: left;
+}
+
+.timetable-cell{
+	position: relative;
+}
+
+.aggregate-left, .aggregate-right{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.aggregate-left{
+	left: 0;
+	right: 50%;
+	background: purple;
+}
+
+.aggregate-right{
+	background: green;
+	left: 50%;
+	right: 0;
 }
