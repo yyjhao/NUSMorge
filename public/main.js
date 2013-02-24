@@ -13,4 +13,17 @@ $(document).ready(function(){
 			urlInput.val("");
 		});
 	});
+
+	if(network.getId()){
+		$('#genLinkButton').hide();
+	}else{
+		$('#genLinkButton').click(function(){
+			$(".overlay")[0].hidden = false;
+			network.genNew(timetable.getUserInfo(), function(id){
+
+			}, function(){
+
+			});
+		});
+	}
 });
