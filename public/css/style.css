@@ -1,11 +1,10 @@
-/*global attributes*/
 
 html, body{
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: "Calibri";
-	font-weight: normal;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 100px;
 }
 
 aside{
@@ -26,13 +25,6 @@ aside{
 h1{
 	font-size: 30px;
 	font-weight: bold;
-}
-
-.header{
-
-	width: 100px;
-	height: 100px; 
-	align: left;
 }
 
 /* member classes*/
