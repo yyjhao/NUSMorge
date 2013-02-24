@@ -91,3 +91,16 @@ li:active{
 	left: 50%;
 	right: 0;
 }
+
+.user{
+	position: absolute;
+	background: yellow;
+	border-radius: 5px;
+	border: 2px solid pink;
+	top: 0;
+	bottom: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background: red;
+	z-index: 1;
+}

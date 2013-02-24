@@ -1,3 +1,4 @@
 $(document).ready(function(){
-	var timetable = timeTable(document.querySelector("#timetableView"));
+	var timetable = TimeTable(document.querySelector("#timetableView"));
+	window.t = timetable;
 });
