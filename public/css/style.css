@@ -52,7 +52,7 @@ html, body {
 aside {
     float: left;
     padding-left: 1em;
-    padding-right: 1em; 
+    padding-right: 1em;
     width: 20%;
     height:100%;
     box-sizing: border-box;
@@ -261,7 +261,7 @@ button:hover{
 }
 
 .timetable tr:hover>td{
-	background: lightgrey;
+	background: #EEE;
 }
 
 .timetable th{
