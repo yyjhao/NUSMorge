@@ -1,148 +1,153 @@
 /*global attributes*/
 
 html, body{
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	font-family: "Calibri";
-	font-weight: normal;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: "Calibri";
+    font-weight: normal;
 }
 
 aside{
-	position: 	absolute;
-	padding: 10px;
-	top: 0;
-	left: 0;
-	right: 0;
-	padding-right: 0px;
-	bottom: 0;
-	width: 20%;
-	overflow-y: auto;
-	background: white;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
+    position: 	absolute;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-right: 0px;
+    bottom: 0;
+    width: 20%;
+    overflow-y: auto;
+    background: white;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 h1{
-	font-size: 30px;
-	font-weight: bold;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .header{
 
-	width: 100px;
-	height: 100px; 
-	align: left;
+    width: 100px;
+    height: 100px; 
+    align: left;
 }
 
 /* member classes*/
 .name {
-	font: 20px bold arial sans-serif;
+    font: 20px bold arial sans-serif;
 }
 
 #timetableView{
-	margin-left: 20%;
-	background: white;
-	height: 100%;
+    margin-left: 20%;
+    background: white;
+    height: 100%;
 }
 
 /* People stuff */
 
 .add-box>input {
-	width: 35%;
+    width: 35%;
 }
 
 #people-list{
-	list-style-type: none;
-	padding: 0px;
-	margin: 0px;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 #people-list>li, .add-box{
-	padding: 5px;
-	background-color: white;
-	background-repeat: no-repeat;
-	position: relative;
+    padding: 5px;
+    background-color: white;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 li:hover{
-	background-color: grey;
-	color:white;
+    background-color: grey;
+    color:white;
 }
 
 li:active{
-	background-color: black;
+    background-color: black;
 }
 
 #people-list>li.editing{
-	background-color: brown;
+    background-color: brown;
 }
 
 .toremove{
-	position: absolute;
-	right: 1em;
-	cursor: pointer;
+    position: absolute;
+    right: 1em;
+    cursor: pointer;
 }
 
 /* time table stuff */
 
 #timetableView table{
-	border-collapse:collapse;
+    border-collapse:collapse;
 }
 
 .timetable th{
-	width: 2.4em;
+    width: 2.4em;
 }
 
 .timetable td{
-	border: 1px solid grey;
-	width: 4em;
-	height: 5em;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
+    border: 1px solid grey;
+    width: 4em;
+    height: 5em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .timeheader{
-	margin-left: 1.2em;
+    margin-left: 1.2em;
 }
 
 .timeheader th{
-	border: 3px solid transparent;
-	width: 4em;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	text-align: left;
+    border: 3px solid transparent;
+    width: 4em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: left;
 }
 
 .timetable-cell{
-	position: relative;
+    position: relative;
 }
 
 .aggregate-left, .aggregate-right{
-	position: absolute;
-	top: 0;
-	bottom: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
 
 .aggregate-left{
-	left: 0;
-	right: 50%;
+    left: 0;
+    right: 50%;
 }
 
 .aggregate-right{
-	left: 50%;
-	right: 0;
+    left: 50%;
+    right: 0;
 }
 
 .user{
-	position: absolute;
-	background: yellow;
-	border-radius: 5px;
-	border: 2px solid black;
-	top: 0;
-	bottom: 0;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	background: white;
-	z-index: 1;
+    position: absolute;
+    background: yellow;
+    border-radius: 5px;
+    border: 2px solid black;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: white;
+    z-index: 1;
+}
+
+.error {
+    margin-left: 20%;
+    margin-top: 5%;
 }
