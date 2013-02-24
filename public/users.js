@@ -51,6 +51,18 @@ var UserBar = function(userList, timetable){
 					timetable.editUser(id);
 				}
 			});
+			$(remove).click(function(e){
+				if(confirm("Are you sure you want to remove this dude?")){
+					timetable.removeUser(id);
+					timetable.hideUserView();
+					if(editing == id){
+						editing = false;
+					}
+					userList.removeChild(elm);
+				}
+				e.preventDefault();
+				return false;
+			});
 			$(userList).prepend(elm);
 			success();
 		}, function(){

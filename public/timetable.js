@@ -93,6 +93,9 @@ var TimeTable = function(div, moduleInfo){
 	}
 
 	var removeUser = view.removeUser = function(id){
+		if(curUserView == id){
+			hideUserView();
+		}
 		hideUser(id);
 		delete userInfo[id];
 	};
