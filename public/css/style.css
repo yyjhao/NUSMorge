@@ -19,6 +19,8 @@ aside{
 	width: 20%;
 	overflow-y: auto;
 	background: white;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 h1{
@@ -35,28 +37,29 @@ h1{
 	font: 20px bold arial sans-serif;
 }
 
-.postbox {
-
-
-}
-
-
 #timetableView{
 	margin-left: 20%;
 	background: white;
 	height: 100%;
 }
 
-ul{
+/* People stuff */
+
+.add-box>input {
+	width: 35%;
+}
+
+#people-list{
 	list-style-type: none;
 	padding: 0px;
 	margin: 0px;
 }
 
-ul li {
-
-background-color: white;
-background-repeat: no-repeat;
+#people-list>li, .add-box{
+	padding: 5px;
+	background-color: white;
+	background-repeat: no-repeat;
+	position: relative;
 }
 
 li:hover{
@@ -66,7 +69,16 @@ li:hover{
 
 li:active{
 	background-color: black;
+}
 
+#people-list>li.editing{
+	background-color: brown;
+}
+
+.toremove{
+	position: absolute;
+	right: 1em;
+	cursor: pointer;
 }
 
 /* time table stuff */

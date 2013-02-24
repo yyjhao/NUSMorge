@@ -12,20 +12,21 @@
         <div class="header">
                 <img src = "ico.png" width=120px height=120px href="#" alt="NUSMorge" align="left">
                 <h1>NUSMorge</h1>       
-         </div>
-        <div class="postbox">
-            <form name="new_morge" method="post" action="/info">
-                <input type="text" name="username" id="username_input" placeholder="Enter name">
-                <input type="text" name="morge_id" id="morge_id_input" placeholder="Enter url">
-                <input type="submit" value="Send">
-            </form>
+        </div>
+        <div class="add-box">
+            <input type="text" name="username" id="username_input" placeholder="Enter name">
+            <input type="text" name="url" id="url_input" placeholder="Enter url">
+            <button id="adduser">Add</button>
         </div>
 
         <ul id="people-list">
-            <li class="toedit"></li>
-            <li class="member">
-                    <span class="name">Zhi An</span><br>
-                    <span class="url" href="#">http://bit.ly/ngzhian</span>
+            <li>
+                <span class="name">yujian</span>
+                <span class="toremove">x</span>
+            </li>
+            <li class="editing">
+                <span class="name">yujian</span>
+                <span class="toremove">x</span>
             </li>
         </ul>
         </aside>

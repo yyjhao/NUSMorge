@@ -5,17 +5,42 @@
  * hovering and shit
  */
 
-var userManagement = function(userList, timetable){
+var UserBar = function(userList, timetable){
 	// parse url to an array of modules
 	//  in the form of [CS1234=L2S2]
 	//  may want to further parse
-	function parseUrl(url){
-		url.split("#").pop().split("&");
+	function parseUrl(url, success, failure){
+		var m = url.split("#").pop().split("&");
+		if(!m || (!m.length)){
+			failure();
+		}else{
+			success(m);
+		}
+		
 	}
 
 	var view = {};
 
-	// add methods to view
+	var users = {};
+	view.addUser = function(name, url, success){
+		parseUrl(url, function(mods){
+			var id = name + "_" + (new Date());
+			timetable.addUser(id, ["a", "b"]);
+			var elm = document.createElement("li"),
+				nameDisplay = document.createElement("span"),
+				remove = document.createElement("span");
+			nameDisplay.className = "name";
+			remove.className = "toremove";
+			remove.innerHTML = "x";
+			nameDisplay.innerHTML = name;
+			elm.appendChild(nameDisplay);
+			elm.appendChild(remove);
+			$(userList).prepend(elm);
+			success();
+		}, function(){
+			alert("Something must be wrong with your url.");
+		});
+	};
 	
 
 	return view;
