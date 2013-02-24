@@ -1,5 +1,5 @@
 // functions to help access database
-var db = require('../models/db.js'),
+var db = require('../models/db.js');
 
 // finds the collection with "id" : morge_id
 exports.find = function(req, res) {

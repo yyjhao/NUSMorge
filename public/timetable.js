@@ -197,7 +197,8 @@ var TimeTable = function(div, moduleInfo){
     }
 
     function updateAggregateView(){
-        var hexcolors = ["#FFFFFF", "#D9FA8F", "#C6F66F", "#FFFF40", "#FFD300", "#FF6440", "#A62000"];
+        var hexcolors = ["#D9FA8F", "#C6F66F", "#FFFF40", "#FFD300", "#FF6440", "#A62000"];
+        var color;
 
         var maxAgg = 0; 
         for (var i = 0; i < 5; i++) {
@@ -208,11 +209,9 @@ var TimeTable = function(div, moduleInfo){
 
         for(var i = 0; i < 5; i++){
             for(var j = 0; j < 32; j++){
-                var color = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 6)];
-                // 5
-                // 0 1 2 3 4 5
-                // 0 1/5 2/5 3/5 4/5 5/5
-                cells[i][j / 2 | 0][j % 2].style.background = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 6)];
+                if (aggregateInfo[i][j] == 0) color = "#FFFFFF";
+                else color = hexcolors[Math.floor(aggregateInfo[i][j] / maxAgg * 5)];
+                cells[i][j / 2 | 0][j % 2].style.background = color;
             }
         }
 
