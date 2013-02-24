@@ -37,7 +37,7 @@ header>img{
 
 /* member classes*/
 .name {
-    font: 20px bold arial sans-serif;
+    
 }
 
 #timetableView{
@@ -65,17 +65,14 @@ header>img{
     position: relative;
 }
 
-li:hover{
-    background-color: grey;
-    color:white;
-}
-
-li:active{
-    background-color: black;
-}
 
 #people-list>li.editing{
     background-color: brown;
+}
+
+#people-list>li:hover {
+	background-color: sienna;
+	color: white;
 }
 
 .toremove{
@@ -163,7 +160,7 @@ li:active{
 	background: white;
 	z-index: 1;
 	opacity: 0.5;
-}
+}	
 .user:hover{
 	z-index: 2;
 }
