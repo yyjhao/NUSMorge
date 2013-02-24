@@ -1,2 +1,4 @@
 node_modules/
 models/db
+
+.DS_Store
