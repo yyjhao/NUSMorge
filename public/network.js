@@ -26,7 +26,7 @@ var network = (function(){
 			}else{
 				success(re.id);
 			}
-		});
+		}, "json");
 	};
 
 	view.postUpdate = function(newObj, success, failure){
@@ -51,7 +51,7 @@ var network = (function(){
 		if(!id)callback({});
 		$.get("/info/" + id, function(re){
 			callback(re.info);
-		});
+		}, "json");
 	};
 
 	return view;
