@@ -83,11 +83,9 @@ li:active{
 .aggregate-left{
 	left: 0;
 	right: 50%;
-	background: purple;
 }
 
 .aggregate-right{
-	background: green;
 	left: 50%;
 	right: 0;
 }
