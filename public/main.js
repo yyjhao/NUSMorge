@@ -46,9 +46,14 @@ $(document).ready(function(){
 	//hacky, temporary solution
 	$("#forgot").click(function(){
 		var ids = network.getIdPool().getIds();
+		var div = document.createElement("div");
+		var a = document.createElement("a");
+			a.target = "_blank";
+		div.appendChild(a);
 		document.write(ids.map(function(id){
 			var l = location.origin + "/#" + id;
-			return l.link(l);
+			a.innerHTML = a.href = l;
+			return div.innerHTML;
 		}).join("<br/>"));
 	});
 });
