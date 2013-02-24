@@ -10,7 +10,9 @@ var allMods = {};
 	for (var i = 0; i < size; i++){
 		//add each module as an empty object to the giant object. keyed by module code
 		var modCode = modInfoTT.code[i];
-		allMods[modCode] = {};
+		modCode.split(" / ").forEach(function(m){
+			allMods[m] = {};
+		});
 
 		//if mod, i, has lecture slots, get lecture slots
 		if (modInfoTT.lectures[i]){
@@ -31,7 +33,7 @@ var allMods = {};
 		}
 
 	}
-	fs.writeFile('mods.json', "var moduleInfo = " + JSON.stringify(allMods), function (err){if (err) throw err;});
+	fs.writeFile('mods.json', "var moduleInfo = " + JSON.stringify(allMods, null, '\t'), function (err){if (err) throw err;});
 })();
 
 function createMod(modCode, typeCode, slotName, slotObj){
@@ -73,10 +75,15 @@ function createMod(modCode, typeCode, slotName, slotObj){
 			break;
 	}
 
-	allMods[modCode][slotCode] = {
-		type: typeC,
-		slots: getSlots(slotObj)
-	};
+	var mods = modCode.split(" / ");
+
+	mods.forEach(function(m){
+		allMods[m][slotCode] = {
+			type: typeC,
+			slots: getSlots(slotObj),
+			code: m
+		};
+	});
 }
 
 function getSlots (slotObj){
@@ -99,11 +106,15 @@ function getSlots (slotObj){
 				break;
 		}
 
-		obj.start = slotObj[num][2];
-		obj.end = slotObj[num][3];
+		obj.start = timeToInt(slotObj[num][2]);
+		obj.duration = timeToInt(slotObj[num][3]) - obj.start;
 		obj.day = parseInt(slotObj[num][1], 10);
 
 		tempSlots.push(obj);
 	}
 	return tempSlots;
+}
+
+function timeToInt(time){
+	return (parseInt(time.slice(0, 2), 10) - 8) * 2 + parseInt(time.slice(2, 4), 10) * 2 / 60;
 }

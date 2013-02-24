@@ -7,30 +7,33 @@ var TimeTable = function(div, moduleInfo){
 
     var moduleInfo = {
         "a": {name: "eh"},
-        "b": {name: "eheh"}	
+        "b": {name: "eheh"} 
     };
 
     view.getUserInfo = function(){
-		return userInfo;
+        return userInfo;
     };
 
     // public APIs
-    var addUser = view.addUser = function(id, slots, moduleName){
+    var addUser = view.addUser = function(id, slots){
         if(userInfo[id])throw "WTF add the same user?";
         var info = [];
+        console.log(slots);
         slots.forEach(function(m){
-            var name = moduleName + "-" + slots.type;
-            
-            var obj = {};
-            obj.name = moduleName + "-" + slots.type;
-            obj.timeSlot = {
-                start: Math.floor(Math.random() * 5),
-            day: Math.floor(Math.random() * 5),
-            duration: Math.floor(Math.random() * 10),
-            name: moduleInfo[m].name
-            };
-            obj.isHidden = false;
-            info.push(obj);
+            var name = m.code + "-" + m.type;
+
+            m.slots.forEach(function(s){
+                var obj = {};
+                obj.name =  name;
+                obj.timeSlot = {
+                    start: s.start,
+                    day: s.day,
+                    duration: s.duration,
+                    name: name
+                };
+                obj.isHidden = false;
+                info.push(obj);
+            });
         });
         userInfo[id] = {
             hidden: true,

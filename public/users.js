@@ -20,6 +20,8 @@ var UserBar = function(userList, timetable, userInfo){
 			});
 			var slots = Object.keys(set).map(function(mm){
 				var inf = mm.split("=");
+				console.log(inf);
+				console.log(moduleInfo[inf[0]]);
 				return moduleInfo[inf[0]][inf[1]];
 			});
 			success(slots);
@@ -36,7 +38,8 @@ var UserBar = function(userList, timetable, userInfo){
 			user.id = name + "_" + (new Date()).getTime();
 			user.hidden = false;
 			user.name = name;
-			addUserWithInfo(user, slots, m[0]);
+			user.slots = slots;
+			addUserWithInfo(user);
 			success();
 		}, function(){
 			alert("Something must be wrong with your url.");
@@ -44,7 +47,7 @@ var UserBar = function(userList, timetable, userInfo){
 	};
 	
 	function addUserWithInfo(user){
-		timetable.addUser(user.id, user.modules, user.hidden);
+		timetable.addUser(user.id, user.slots, user.hidden);
 		if(!user.name){
 			var splits = user.id.split("_");
 			splits.pop();
