@@ -14,16 +14,7 @@ $(document).ready(function(){
 		});
 	});
 
-	if(network.getId()){
-		$('#genLinkButton').hide();
-	}else{
-		$('#genLinkButton').click(function(){
-			$(".overlay")[0].hidden = false;
-			network.genNew(timetable.getUserInfo(), function(id){
-
-			}, function(){
-
-			});
-		});
-	}
+	var genLinkManger = GenLinkManager($("#gen-link-area"), function(){
+		return timetable.getUserInfo();
+	});
 });

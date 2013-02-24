@@ -10,6 +10,10 @@ var TimeTable = function(div, moduleInfo){
         "b": {name: "eheh"}	
     };
 
+    view.getUserInfo = function(){
+		return userInfo;
+    };
+
     // public APIs
     var addUser = view.addUser = function(id, modules){
         if(userInfo[id])throw "WTF add the same user?";
