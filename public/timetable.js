@@ -3,6 +3,34 @@
  */
 
 var TimeTable = function(div, moduleInfo){
+    (function(){
+        var current = new Date();
+        var now = current.getFullYear();
+        var next = now + 1;
+        function check(date,first,second) {
+            if(date.getMonth()<=4){
+                return first-1 + "/" + first;
+            }
+            else if (date.getMonth() >=8){
+                return first + "/" + second;
+                } else {
+                return first-1 + "/" + first + "End.";
+            }
+        }
+
+        function sem(date) {
+            if(date.getMonth()<=4){
+                return "1";
+            }
+            else if (date.getMonth() >=8){
+                return 2;
+                } else {
+                return "(Special)";
+            }
+        }
+
+        $(div).find("#header").html("AY" + check(current,now,next) + " | Semester " + sem(current));
+    })();
     var view = {};
 
     var moduleInfo = {
