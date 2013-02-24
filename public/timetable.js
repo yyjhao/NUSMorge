@@ -7,28 +7,33 @@ var TimeTable = function(div, moduleInfo){
 
     var moduleInfo = {
         "a": {name: "eh"},
-        "b": {name: "eheh"}	
+        "b": {name: "eheh"} 
     };
 
     view.getUserInfo = function(){
-		return userInfo;
+        return userInfo;
     };
 
     // public APIs
-    var addUser = view.addUser = function(id, modules){
+    var addUser = view.addUser = function(id, slots){
         if(userInfo[id])throw "WTF add the same user?";
         var info = [];
-        modules.forEach(function(m){
-            var obj = {};
-            obj.name = moduleInfo[m].name;
-            obj.timeSlot = {
-                start: Math.floor(Math.random() * 5),
-            day: Math.floor(Math.random() * 5),
-            duration: Math.floor(Math.random() * 10),
-            name: moduleInfo[m].name
-            };
-            obj.isHidden = false;
-            info.push(obj);
+        console.log(slots);
+        slots.forEach(function(m){
+            var name = m.code + "-" + m.type;
+
+            m.slots.forEach(function(s){
+                var obj = {};
+                obj.name =  name;
+                obj.timeSlot = {
+                    start: s.start,
+                    day: s.day,
+                    duration: s.duration,
+                    name: name
+                };
+                obj.isHidden = false;
+                info.push(obj);
+            });
         });
         userInfo[id] = {
             hidden: true,
@@ -131,7 +136,7 @@ var TimeTable = function(div, moduleInfo){
     UserTimeSlotDisplay.prototype.setSlot = function(s, editable){
         var timeSlot = s.timeSlot;
         this.content.innerHTML = timeSlot.name;
-        this.setHidden(timeSlot.isHidden, true);
+        this.setHidden(s.isHidden, true);
         this.elm.style.width = 100 * timeSlot.duration / 2 + "%";
         if(timeSlot.start % 2)this.elm.style.left = "50%";
         else this.elm.style.left = "0";

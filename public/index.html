@@ -6,6 +6,7 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/style.css">
         <script src="lib/kimbo.min.js"></script>
+        <script src='mods.js'></script>
         <script src="users.js"></script>
         <script src="timetable.js"></script>
         <script src="network.js"></script>
@@ -13,7 +14,9 @@
         <script src="main.js"></script>
         <script src="exploding_shit.js"></script>
     </head>
+
     <body>
+
         <aside>
         <header>
         <img src="ico.png">
@@ -39,7 +42,38 @@
             </div>
         </div>
         </aside>
+         <div id="header">
+         <script id="date">
+        var current = new Date();
+        var now = current.getFullYear();
+        var next = now + 1;
+        function check(date,first,second) {
+         if(date.getMonth()<=4){
+            return first-1 + "/" + first;
+        }
+         else if (date.getMonth() >=8){
+            return first + "/" + second;
+        } else {
+            return first-1 + "/" + first + "End.";
+        }
+        }
+
+        function sem(date) {
+            if(date.getMonth()<=4){
+            return "1";
+        }
+         else if (date.getMonth() >=8){
+            return 2;
+        } else {
+            return "(Special)";
+        }
+        }
+        
+        document.write("AY" + check(current,now,next) + " | Semester " + sem(current));
+        </script> </div>
+
         <div id="timetableView">
         </div>
+
     </body>
 </html>
