@@ -1,11 +1,14 @@
 var moveit = function(object) {
-    object.style.position = "absolute";
-    object.style.top = Math.random()*500 + "px";
-    object.style.left = Math.random()*800 + "px";
+    if (object) {
+        object.style.position = "absolute";
+        object.style.top = Math.random()*500 + "px";
+        object.style.left = Math.random()*800 + "px";
+    }
 };
 
 var moveall = function() {
     var tds = document.getElementsByTagName("td");
+    $("table.timetable td")
     for (var i in tds) {
         moveit(tds[i]);
     }

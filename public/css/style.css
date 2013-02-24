@@ -64,7 +64,7 @@ header {
 }
 
 header>h1 {
-	color: #f7912d;
+    color: #f7912d;
     display: block;
     margin: auto auto;
     text-align: center;
@@ -79,13 +79,12 @@ header>img{
 
 /* member classes*/
 .name {
-    
+
 }
 #header{
-	margin-left: 20%;
-	background-color: #f7912d;
-	text-align: left;
-	color: white;
+    background-color: #f7912d;
+    text-align: left;
+    color: white;
 }
 
 .bottom {
@@ -175,6 +174,7 @@ button {
 /* member classes*/
 
 #timetableView{
+    width: 100%;
     margin-left: 20%
 }
 
