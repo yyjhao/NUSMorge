@@ -2,39 +2,122 @@
  * Time table management
  */
 
-var timeTable = function(div){
+var TimeTable = function(div){
 	var view = {};
 
 	// public APIs
-	view.addUser = function(id, modules){
+	var addUser = view.addUser = function(id, modules){
 		
+		showUser(id);
 	};
 
-	view.highlightUser = function(id){
+	var highlightUser = view.highlightUser = function(id){
 		switchToUserView(userInfo[id]);
 		showUserView();
 	};
 
-	view.editUser = function(id){
+	var editUser = view.editUser = function(id){
 		switchToUserView(userInfo[id], true);
 		showUserView();
 	};
 
-	view.hideUser = function(id){
+	function hideSlot(slot){
+		if(slot.isHidden)return;
+		slot.isHidden = true;
+		removeFromAggregate(slot.timeSlot);
+	}
+
+	function showSlot(slot){
+		if(!slot.isHidden)return;
+		slot.isHdden = true;
+		addToAggregate(slot.timeSlot);
+	}
+
+	var hideUser = view.hideUser = function(id){
 		userInfo[id].hidden = true;
-		updateArregate();
+		userCount--;
+		userInfo[id].info.forEach(function(s){
+			if(!s.isHidden){
+				removeFromAggregate(s.timeSlot);
+			}
+		});
+		updateAggregateView();
 	};
 
-	view.removeUser = function(id){
-		delete userInfo[id];
-		updateArregate();
+	var showUser = view.showUser = function(id){
+		userInfo[id].hidden = true;
+		userCount++;
+		userInfo[id].info.forEach(function(s){
+			if(!s.isHidden){
+				addToAggregate(s.timeSlot);
+			}
+		});
+		updateAggregateView();
 	};
+
+	var removeUser = view.removeUser = function(id){
+		hideUser(id);
+		delete userInfo[id];
+		updateArregateView();
+	};
+
+	view.updateAggregateView = updateAggregateView;
 
 	view.hideUserView = hideUserView;
 
-	// id: [hidden: bool, info: {name, timeslot, isHidden}]
+	function UserTimeSlotDisplay(){
+		var elm = this.elm = document.createElement("div");
+		elm.className = "user";
+		var toShowButton = this.toShowButton = document.createElement("div");
+		toShowButton.innerHTML = "o";
+		toShowButton.className = "toShowButton";
+		var self = this;
+		toShowButton.onclick = function(){
+			$(this).toogleClass("toHide");
+			self.toggleShowHide();
+		};
+		elm.appendChild(toShowButton);
+		var content = this.content = document.createElement("span");
+		elm.appendChild(content);
+		// hidden means not considered in aggreate, but it will still be displayed
+		this.hidden = true;
+	}
+
+	UserTimeSlotDisplay.prototype.setSlot = function(timeSlot){
+		this.content.innerHTMl = timeSlot.name;
+		this.setHidden(timeSlot.isHidden, true);
+		this.elm.style.width = 100 * timeSlot.duration + "%";
+		this.slot = timeSlot;
+	};
+
+	UserTimeSlotDisplay.prototype.setHidden = function(hidden, dontTell){
+		this.hidden = hidden;
+		if(hidden){
+			$(this.toShowButton).addClass("tohide");
+		}else{
+			$(toShowButton).removeClass("tohide");
+		}
+		if(!dontTell){
+			this.slotVisibilityChanged(hidden);
+		}
+	};
+
+	UserTimeSlotDisplay.prototype.toggleShowHide = function(){
+		this.setHidden(!this.hidden);
+	};
+
+	UserTimeSlotDisplay.prototype.slotVisibilityChanged = function(nowHidden){
+		if(nowHidden){
+			hideSlot(this.slot);
+		}else{
+			showSlot(this.slot);
+		}
+	};
+
+	// id: {hidden: bool, info: [{name, timeSlot, timeSlotString, isHidden}]}
 	var userInfo = {},
-		userCount = 0;
+		userCount = 0,
+		curUserView;
 
 	var aggregateInfo = (function(){
 		var re = [];
@@ -48,23 +131,35 @@ var timeTable = function(div){
 	})();
 
 	function switchToUserView(info, edit){
-
+		if(curUserView){
+			hideUserView();
+		}
+		info.forEach(function(s){
+			activateSlot(s);
+		});
 	}
 
-	function updateArregateView(){
-
+	function activateSlot(timeslot){
+		var display = cells[timeslot.day][timeslot.start];
+		display.setSlot(timeslot);
+		display.style.display = "block";
 	}
 
-	function showUserView(){
-
+	function updateAggregateView(){
+		if(!userCount)return;
+		for(var i = 0; i < 5; i++){
+			for(var j = 0; j < 32; j++){
+				cells[i][j / 2 | 0][j % 2].style.background = "hsl(" +
+					((userCount - aggregateInfo[i][j]) / userCount * 100 | 0) +
+					", 100%, 50%)";
+			}
+		}
 	}
 
 	function hideUserView(){
-
-	}
-
-	function updateArregate(){
-
+		userSlotDisplays.css({
+			display: "none"
+		});
 	}
 
 	// private stuff
@@ -107,13 +202,12 @@ var timeTable = function(div){
 				cell.className = "timetable-cell";
 				var innerCell1 = document.createElement("div"),
 					innerCell2 = document.createElement("div"),
-					innerCell3 = document.createElement("div");
+					innerCell3 = new UserTimeSlotDisplay();
 				innerCell1.className = "aggregate-left";
 				innerCell2.className = "aggregate-right";
-				innerCell3.className = "user";
 				cell.appendChild(innerCell1);
 				cell.appendChild(innerCell2);
-				cell.appendChild(innerCell3);
+				cell.appendChild(innerCell3.elm);
 				cells[i].push([innerCell1, innerCell2, innerCell3]);
 				row.appendChild(cell);
 			}
@@ -124,5 +218,8 @@ var timeTable = function(div){
 		return cells;
 	})();
 
+	var userSlotDisplays = $(".user");
+
 	return view;
 };
+
