@@ -35,7 +35,7 @@ var TimeTable = function(div, moduleInfo){
 
     var moduleInfo = {
         "a": {name: "eh"},
-        "b": {name: "eheh"} 
+        "b": {name: "eheh"}
     };
 
     view.getUserInfo = function(){
@@ -45,7 +45,7 @@ var TimeTable = function(div, moduleInfo){
     // public APIs
     var addUser = view.addUser = function(id, info, hidden){
         if(userInfo[id])throw "WTF add the same user?";
-        
+
         userInfo[id] = {
             hidden: true,
             info: info,
@@ -221,10 +221,10 @@ var TimeTable = function(div, moduleInfo){
     }
 
     function updateAggregateView(){
-        var hexcolors = ["#D9FA8F", "#C6F66F", "#FFFF40", "#FFD300", "#FF6440", "#A62000"];
+        var hexcolors = ["#FFDBB3", "#FFB066", "#FF9661", "#FF8359", "#FA7048", "#FF5A2B"];
         var color;
 
-        var maxAgg = 0; 
+        var maxAgg = 0;
         for (var i = 0; i < 5; i++) {
             for(var j = 0; j < 32; j++){
                 maxAgg = maxAgg > aggregateInfo[i][j] ? maxAgg : aggregateInfo[i][j];
