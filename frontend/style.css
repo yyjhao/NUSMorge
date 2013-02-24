@@ -18,3 +18,25 @@ aside{
 	background: red;
 	height: 100%;
 }
+
+ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul li {
+
+background-color: white;
+background-repeat: no-repeat;
+}
+
+li:hover{
+	background-color: yellow;
+}
+
+li:active{
+	background-color: 
+
+};
+
