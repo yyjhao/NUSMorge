@@ -26,13 +26,13 @@ aside{
 h1{
     font-size: 30px;
     font-weight: bold;
+    margin: 0.25em;
+    margin-left: 10px;
 }
 
-.header{
-
-    width: 100px;
-    height: 100px; 
-    align: left;
+header>img{
+	display: block;
+	margin-left: 17px;
 }
 
 /* member classes*/
