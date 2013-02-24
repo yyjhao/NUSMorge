@@ -145,9 +145,6 @@ a:link:active, a:visited:active {
     -webkit-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
     -moz-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
     border: 1px solid rgba(247, 145, 45, 0.8);
-
-    // 247 145 45
-    // f7912d
 }
 
 button {
