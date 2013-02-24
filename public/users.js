@@ -20,34 +20,61 @@ var UserBar = function(userList, timetable, userInfo){
 			});
 			var slots = Object.keys(set).map(function(mm){
 				var inf = mm.split("=");
-				console.log(inf);
-				console.log(moduleInfo[inf[0]]);
 				return moduleInfo[inf[0]][inf[1]];
 			});
 			success(slots);
 		}
 	}
 
-	var view = {};
+	var view = window.u = {};
 
 	var users = [];
 	var editing = false;
 	view.addUser = function(name, url, success){
 		parseUrl(url, function(slots){
 			var user = {};
-			user.id = name + "_" + (new Date()).getTime();
+			user.id = name + "_" + (new Date()).getTime().toString(36);
 			user.hidden = false;
 			user.name = name;
-			user.slots = slots;
+			user.info = slotsToInfo(slots);
 			addUserWithInfo(user);
 			success();
 		}, function(){
 			alert("Something must be wrong with your url.");
 		});
 	};
+
+	view.update = function(){
+		var info = timetable.getUserInfo();
+		var data = users.map(function(u){
+			return info[u.id];
+		});
+	};
+
+	function slotsToInfo(slots){
+		var info = [];
+        slots.forEach(function(m){
+            var name = m.code + "-" + m.type;
+
+            m.slots.forEach(function(s){
+                var obj = {};
+                obj.name =  name;
+                obj.timeSlot = {
+                    start: s.start,
+                    day: s.day,
+                    duration: s.duration,
+                    name: name
+                };
+                obj.isHidden = false;
+                info.push(obj);
+            });
+        });
+        return info;
+	}
 	
 	function addUserWithInfo(user){
-		timetable.addUser(user.id, user.slots, user.hidden);
+		users.push(user);
+		timetable.addUser(user.id, user.info, user.hidden);
 		if(!user.name){
 			var splits = user.id.split("_");
 			splits.pop();
@@ -110,7 +137,9 @@ var UserBar = function(userList, timetable, userInfo){
 		});
 		$(userList).prepend(elm);
 	}
-
+	userInfo.forEach(function(u){
+		addUserWithInfo(u);
+	});
 	return view;
 };
 

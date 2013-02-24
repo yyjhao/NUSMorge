@@ -1,5 +1,5 @@
 /*
- * a few ultility functions for the win
+ * a few utility functions for the win
  */
 
 var network = (function(){

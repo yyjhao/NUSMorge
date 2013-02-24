@@ -15,31 +15,18 @@ var TimeTable = function(div, moduleInfo){
     };
 
     // public APIs
-    var addUser = view.addUser = function(id, slots){
+    var addUser = view.addUser = function(id, info, hidden){
         if(userInfo[id])throw "WTF add the same user?";
-        var info = [];
-        console.log(slots);
-        slots.forEach(function(m){
-            var name = m.code + "-" + m.type;
-
-            m.slots.forEach(function(s){
-                var obj = {};
-                obj.name =  name;
-                obj.timeSlot = {
-                    start: s.start,
-                    day: s.day,
-                    duration: s.duration,
-                    name: name
-                };
-                obj.isHidden = false;
-                info.push(obj);
-            });
-        });
+        
         userInfo[id] = {
             hidden: true,
-            info: info
+            info: info,
+            id: id
         };
         showUser(id);
+        if(hidden){
+            hideUser(id);
+        }
     };
 
     var highlightUser = view.highlightUser = function(id){
