@@ -14,7 +14,7 @@ exports.save = function(req, res) {
             if( err || !saved ) console.log("morge not saved");
             else console.log("morge saved");
         });
-    res.send("save");
+    res.redirect("/");
 };
 
 // finds the collection with a

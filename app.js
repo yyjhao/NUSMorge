@@ -2,16 +2,11 @@ var express = require('express');
 var app = express();
 var db = require('./models/db.js');
 
+app.configure(function(){
+    app.use(express.static(__dirname + '/public'));
+});
+
 app.get('/', function(req, res) {
-    /*
-       var morge_id = app.get('morge_id');
-       if (morge_id != null) {
-       res.send(morge_id);
-       } else {
-       res.send("Hello World!");
-       }
-       */
-    res.send("Hello World!");
 });
 
 app.get('/info/:morge_id', function(req, res) {
