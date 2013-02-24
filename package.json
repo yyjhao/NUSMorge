@@ -1,11 +1,17 @@
 {
     "name": "NUSMorge",
     "version": "0.0.1",
-    "author": "Morge Team",
+    "author": "Nange",
     "description": "a tool to help students merge their timetable and identify clashes",
     "contributors": [
         {
-            "name":"Yao Yu Jian"
+            "name": "Yao Yujian"
+        }, {
+            "name": "Joey"
+        }, {
+            "name": "Wong Shen Nan"
+        }, {
+            "name": "Ng Zhi An"
         }
     ],
     "repository": {
