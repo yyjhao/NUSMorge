@@ -153,15 +153,15 @@ button {
     position: relative;
 }
 
-.view-toggle{
-    vertical-align: middle;
-    height: 0.3em;
-    width: 0.3em;
-    display: inline-block;
-    margin-right: 0.5em;
-    background: #F89D9D;
+.view-toggle {
+    background: url('../eye.png') no-repeat left center;
+    padding: 0 10px 0 5px;
 }
 
+.view-toggle.toggled{
+    background: url('../eye_b.png') no-repeat left center;
+    padding: 0 10px 0 5px;
+}
 
 #people-list>li:hover {
     background-color: rgba(190,190,190,0.4);
@@ -176,10 +176,6 @@ button {
     right: 0.3em;
     cursor: pointer;
     top: 0.1em;
-}
-
-.view-toggle.toggled{
-    opacity: 1;
 }
 
 /* member classes*/
