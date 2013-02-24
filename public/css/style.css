@@ -11,8 +11,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -22,7 +22,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -99,6 +99,24 @@ header>img{
     -moz-border-sizing: border-box;
 }
 
+.footer{
+    position: absolute;
+    bottom: 41px;
+    right: 3em;
+    color:grey;
+    text-align:right;
+    font-size:80%;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: none;
+    cursor: auto;
+}
+a:link:active, a:visited:active {
+    color: inherite;
+    text-decoration:none;
+}
 /* People stuff */
 
 .add-box {
@@ -118,8 +136,8 @@ header>img{
 .add-box>input:focus {
     width: 100%;
     box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
-    -webkit-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6); 
-    -moz-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6); 
+    -webkit-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
+    -moz-box-shadow: 0 0 5px rgba(247, 145, 45, 0.6);
     border: 1px solid rgba(247, 145, 45, 0.8);
 
     // 247 145 45
@@ -298,7 +316,7 @@ button {
     -ms-transition-duration: 0.2s;
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;ont-size: 0.9em;
-}	
+}
 
 .user:hover{
     z-index: 2;
