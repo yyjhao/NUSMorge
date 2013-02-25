@@ -19,7 +19,9 @@ var UserBar = function(userList, timetable, userInfo){
 				set[mm] = true;
 			});
 			try{
-				var slots = Object.keys(set).map(function(mm){
+				var slots = Object.keys(set).filter(function(mm){
+					return mm.indexOf("=") !== -1;
+				}).map(function(mm){
 					var inf = mm.split("=");
 					return moduleInfo[inf[0]][inf[1]];
 				});
