@@ -2,7 +2,7 @@
     "name": "NUSMorge",
     "version": "0.0.1",
     "author": "Nange",
-    "description": "a tool to help students merge their timetable and identify clashes",
+    "description": "simple way to visualize multiple timetables",
     "contributors": [
         {
             "name": "Yao Yujian"
@@ -25,7 +25,6 @@
     "dependencies": {
         "mongojs": "0.6.x",
         "express": "3.1.x",
-        "randomstring": "1.0.x"
     },
     "license" : "MIT",
     "engines" : {
