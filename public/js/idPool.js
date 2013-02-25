@@ -14,7 +14,7 @@ var idPool = (function(){
 	}
 	last = localStorage["morgelastid"];
 	pool.add = function(id){
-		if(store[id])return;
+		if(!id)return;
 		store[id] = true;
 		last = id;
 		save();
