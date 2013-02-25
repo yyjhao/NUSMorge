@@ -25,7 +25,8 @@ var UserBar = function(userList, timetable, userInfo){
 					var inf = mm.split("=");
 					return moduleInfo[inf[0]][inf[1]];
 				});
-				success(slots);
+				if(slots.length) success(slots);
+				else failure();
 			}catch(e){
 				failure();
 			}

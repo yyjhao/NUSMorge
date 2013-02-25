@@ -22,7 +22,7 @@ $(document).ready(function(){
 			inputBut = $("#adduser");
 		nameInput.focus();
 		inputBut.click(function(){
-			if(!nameInput.val|| (!urlInput.val()))return;
+			if(!nameInput.val() || (!urlInput.val()))return;
 			userBar.addUser(nameInput.val(), urlInput.val(), function(){
 				nameInput.val("");
 				urlInput.val("");
