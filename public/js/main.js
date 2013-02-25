@@ -1,3 +1,8 @@
+/*
+ * This is where we start everything
+ */
+
+
 $(document).ready(function(){
 	var timetable = TimeTable(document.querySelector("#timetableView"));
 	window.t = timetable;

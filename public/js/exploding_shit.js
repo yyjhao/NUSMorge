@@ -1,3 +1,7 @@
+/*
+ * Guess what, this is an easter egg
+ */
+
 var moveit = function() {
     this.style.position = "absolute";
     var height = window.innerHeight;
