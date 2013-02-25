@@ -2,6 +2,13 @@ $(document).ready(function(){
 	var timetable = TimeTable(document.querySelector("#timetableView"));
 	window.t = timetable;
 
+	//hack to fix firefox
+	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+		$("td").css({
+			display: "inline-block"
+		});
+	}
+
 	var ini = function(info){
 		info = info || [];
 		var userBar = UserBar(document.querySelector("#people-list"), timetable, info);
