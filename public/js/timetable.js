@@ -4,6 +4,7 @@
 
 var TimeTable = function(div, moduleInfo){
     (function(){
+        // this closure generates the header automatically
         var current = new Date();
         var now = current.getFullYear();
         var next = now + 1;
@@ -33,11 +34,6 @@ var TimeTable = function(div, moduleInfo){
     })();
     var view = {};
 
-    var moduleInfo = {
-        "a": {name: "eh"},
-        "b": {name: "eheh"}
-    };
-
     view.getUserInfo = function(){
         return userInfo;
     };
@@ -66,18 +62,6 @@ var TimeTable = function(div, moduleInfo){
         switchToUserView(userInfo[id], true);
     };
 
-    function hideSlot(slot){
-        if(slot.isHidden)return;
-        slot.isHidden = true;
-        removeFromAggregate(slot.timeSlot);
-    }
-
-    function showSlot(slot){
-        if(!slot.isHidden)return;
-        slot.isHidden = false;
-        addToAggregate(slot.timeSlot);
-    }
-
     var hideUser = view.hideUser = function(id){
         if(userInfo[id].hidden)return;
         userInfo[id].hidden = true;
@@ -101,6 +85,18 @@ var TimeTable = function(div, moduleInfo){
         });
         updateAggregateView();
     };
+
+    function hideSlot(slot){
+        if(slot.isHidden)return;
+        slot.isHidden = true;
+        removeFromAggregate(slot.timeSlot);
+    }
+
+    function showSlot(slot){
+        if(!slot.isHidden)return;
+        slot.isHidden = false;
+        addToAggregate(slot.timeSlot);
+    }
 
     function addToAggregate(slot){
         var i = slot.day;
@@ -128,6 +124,8 @@ var TimeTable = function(div, moduleInfo){
 
     view.hideUserView = hideUserView;
 
+
+    // an object for each user's module that are to be shown when hovered, or editing
     function UserTimeSlotDisplay(){
         var elm = this.elm = document.createElement("div");
         elm.className = "user";
@@ -185,6 +183,7 @@ var TimeTable = function(div, moduleInfo){
         userCount = 0,
         curUserView = null;
 
+    // a 2D array, 5 days, 2 * (24 - 8) slots per day
     var aggregateInfo = (function(){
         var re = [];
         for(var i = 0; i < 5; i++){
@@ -247,60 +246,59 @@ var TimeTable = function(div, moduleInfo){
         curUserView = null;
     }
 
-    // private stuff
     var cells = (function genTable(){
         var table = document.createElement("table"),
         tbody = document.createElement("tbody");
-    table.className = "timetable";
-    var cells = [];
-    var timeHeader = document.createElement("tbody"),
-        hr = document.createElement("tr"),
-        timeHeaderTable = document.createElement("table");
-    timeHeaderTable.className = "timeheader";
-    timeHeader.appendChild(hr);
-    timeHeaderTable.appendChild(timeHeader);
-    table.appendChild(tbody);
-    for(var i = 0; i < 17; i++){
-        var hcell = document.createElement("th");
-        hcell.innerHTML = (function getTimeString(hour){
-            if(hour < 10)return "0" + hour + "00";
-            else if(hour == 24)return "0000";
-            else return hour + "00";
-        })(i + 8);
-        hr.appendChild(hcell);
-    }
-
-    for(var i = 0; i < 5; i++){
-        cells.push([]);
-        var row = document.createElement("tr");
-        var dayheader = document.createElement("th");
-        dayheader.innerHTML =
-            [
-            "M<br />O<br />N<br />",
-            "T<br />U<br />E<br />",
-            "W<br />E<br />D<br />",
-            "T<br />H<br />U<br />",
-            "F<br />R<br />I<br />"][i];
-        row.appendChild(dayheader);
-        for(var j = 0; j < 16; j++){
-            var cell = document.createElement("td");
-            cell.className = "timetable-cell";
-            var innerCell1 = document.createElement("div"),
-                innerCell2 = document.createElement("div"),
-                innerCell3 = new UserTimeSlotDisplay();
-            innerCell1.className = "aggregate-left";
-            innerCell2.className = "aggregate-right";
-            cell.appendChild(innerCell1);
-            cell.appendChild(innerCell2);
-            cell.appendChild(innerCell3.elm);
-            cells[i].push([innerCell1, innerCell2, innerCell3]);
-            row.appendChild(cell);
+        table.className = "timetable";
+        var cells = [];
+        var timeHeader = document.createElement("tbody"),
+            hr = document.createElement("tr"),
+            timeHeaderTable = document.createElement("table");
+        timeHeaderTable.className = "timeheader";
+        timeHeader.appendChild(hr);
+        timeHeaderTable.appendChild(timeHeader);
+        table.appendChild(tbody);
+        for(var i = 0; i < 17; i++){
+            var hcell = document.createElement("th");
+            hcell.innerHTML = (function getTimeString(hour){
+                if(hour < 10)return "0" + hour + "00";
+                else if(hour == 24)return "0000";
+                else return hour + "00";
+            })(i + 8);
+            hr.appendChild(hcell);
         }
-        tbody.appendChild(row);
-    }
-    div.appendChild(timeHeaderTable);
-    div.appendChild(table);
-    return cells;
+
+        for(var i = 0; i < 5; i++){
+            cells.push([]);
+            var row = document.createElement("tr");
+            var dayheader = document.createElement("th");
+            dayheader.innerHTML =
+                [
+                "M<br />O<br />N<br />",
+                "T<br />U<br />E<br />",
+                "W<br />E<br />D<br />",
+                "T<br />H<br />U<br />",
+                "F<br />R<br />I<br />"][i];
+            row.appendChild(dayheader);
+            for(var j = 0; j < 16; j++){
+                var cell = document.createElement("td");
+                cell.className = "timetable-cell";
+                var innerCell1 = document.createElement("div"),
+                    innerCell2 = document.createElement("div"),
+                    innerCell3 = new UserTimeSlotDisplay();
+                innerCell1.className = "aggregate-left";
+                innerCell2.className = "aggregate-right";
+                cell.appendChild(innerCell1);
+                cell.appendChild(innerCell2);
+                cell.appendChild(innerCell3.elm);
+                cells[i].push([innerCell1, innerCell2, innerCell3]);
+                row.appendChild(cell);
+            }
+            tbody.appendChild(row);
+        }
+        div.appendChild(timeHeaderTable);
+        div.appendChild(table);
+        return cells;
     })();
 
     var userSlotDisplays = $(".user");
