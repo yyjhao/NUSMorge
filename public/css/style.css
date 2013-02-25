@@ -253,7 +253,7 @@ button:hover{
 }
 
 .timetable td{
-    border: 1px solid grey;
+    border: 2px solid rgb(150, 150, 150);
     width: 4em;
     min-width: 4em;
     max-width: 4em;
