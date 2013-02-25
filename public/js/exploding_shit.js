@@ -1,7 +1,9 @@
 var moveit = function() {
     this.style.position = "absolute";
-    this.style.top = Math.random()*500 + "px";
-    this.style.left = Math.random()*800 + "px";
+    var height = window.innerHeight;
+    var width = window.innerWidth;
+    this.style.top = Math.random()*height + "px";
+    this.style.left = Math.random()*width + "px";
     this.style.webkitTransitionDuration = "1s";
 };
 
