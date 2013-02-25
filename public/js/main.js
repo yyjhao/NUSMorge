@@ -9,8 +9,13 @@ $(document).ready(function(){
 
 	//hack to fix firefox
 	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-		$("td").css({
-			display: "inline-block"
+		$("td, th").css({
+			display: "inline-block",
+			"vertical-align": "top"
+		});
+		$("tr").css({
+			"display": "block",
+			"min-width": "68em"
 		});
 	}
 
