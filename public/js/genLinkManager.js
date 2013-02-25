@@ -1,3 +1,7 @@
+/*
+ * Manage elemments related to generate link and sync
+ */
+
 var GenLinkManager = function(area, getObj, syncArea, sync){
 	syncArea.find("button").click(function(){
 		sync();
