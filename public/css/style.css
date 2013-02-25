@@ -111,7 +111,7 @@ header>img{
     right: 3em;
     color:grey;
     text-align:right;
-    font-size:80%;
+    font-size:90%;
 }
 
 a:link, a:visited {
@@ -138,6 +138,7 @@ a:link:active, a:visited:active {
     -moz-transition: all 0.25s ease-in-out;
     border: 1px solid rgba(0, 0, 0, 0.2);
     margin-bottom: 0.5em;
+    font-weight: 100;
 }
 
 .add-box>input:focus {
@@ -356,7 +357,7 @@ button:hover{
 
 .error {
     margin-left: 20%;
-    margin-top: 5%;
+    padding-top: 5%;
     line-height: 1.5em;
 }
 
