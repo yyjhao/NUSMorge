@@ -53,13 +53,13 @@ $(document).ready(function(){
 
 	//hacky, temporary solution
 	$("#forgot").click(function(){
-		if(!network.getId() && network.getIdPool().getLast()){
-			var la = network.getIdPool().getLast();
+		if(!network.getId() && idPool.getLast()){
+			var la = idPool.getLast();
 			location.hash = la;
 			network.updateId();
 			location.reload();
 		}else{
-			var ids = network.getIdPool().getIds();
+			var ids = idPool.getIds();
 			var div = document.createElement("div");
 			var a = document.createElement("a");
 				a.target = "_blank";

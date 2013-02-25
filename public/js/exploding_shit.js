@@ -13,14 +13,9 @@ var moveit = function() {
 
 var moveall = function() {
     $("td").each(moveit);
-}
+};
 
 var explode = function() {
-    /*
-       var body = document.getElementsByTagName("body");
-       body[0].style.color = "blue";
-       */
-    //setInterval(function(){ alert("hello")}, 1000);
     $("td").css({
         position: "absolute",
         top: 0,
@@ -28,11 +23,4 @@ var explode = function() {
         webkitTransitionDuration: "1s"
     });
     setInterval(moveall, 2000);
-    /*
-    setInterval(function(tds) {
-        for (var i in tds) {
-            var td = tds[i];
-            moveit(td);
-        }}, 1000);
-        */
-}
+};
