@@ -28,7 +28,8 @@ var UserBar = function(userList, timetable, userInfo){
 				if(slots.length) success(slots);
 				else failure();
 			}catch(e){
-				failure();
+				console.log(e);
+				// failure();
 			}
 		}
 	}
