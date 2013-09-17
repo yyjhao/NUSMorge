@@ -24,7 +24,7 @@
     ],
     "dependencies": {
         "mongojs": "0.6.x",
-        "express": "3.1.x",
+        "express": "3.1.x"
     },
     "license" : "MIT",
     "engines" : {
