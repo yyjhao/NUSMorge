@@ -21,16 +21,16 @@ var TimeTable = function(div, moduleInfo){
 
         function sem(date) {
             if(date.getMonth()<=4){
-                return "1";
+                return "Semester 2";
             }
             else if (date.getMonth() >=8){
-                return 2;
-                } else {
-                return "(Special)";
+                return "Semester 1";
+            } else {
+                return "Special Term";
             }
         }
 
-        $(div).find("#header").html("AY" + check(current,now,next) + " | Semester " + sem(current));
+        $(div).find("#header").html("AY" + check(current,now,next) + " | " + sem(current));
     })();
     var view = {};
 
