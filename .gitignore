@@ -1,4 +1,7 @@
 node_modules/
 models/db
+util/modstt.js
+util/mods.json
+public/js/mods.js
 
 .DS_Store
