@@ -12,7 +12,7 @@ exports.find = function(req, res) {
             info: col
         });
     });
-}
+};
 
 exports.findAll = function(req, res) {
     console.log("listing all timetables");
@@ -20,7 +20,7 @@ exports.findAll = function(req, res) {
         console.log("listing all success");
         res.json(col);
     });
-}
+};
 
 exports.add = function(req, res) {
     var id = (new Date()).getTime().toString(36);

@@ -1,38 +1,36 @@
-var dbUrl = "morge";
-var collections = ["timetables"];
+var redis = require("redis"),
+    client = redis.createClient("/tmp/redis.sock");
 
-// Connect to the db
-var db = require('mongojs').connect(dbUrl, collections);
+client.select(1);
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 // finds the collection with "id" : morge_id
 // then runs callback with the reply
 exports.find = function(id, success) {
-    var key = {};
-    if (id != null) key.id = id;
-    db.timetables.findOne(key, function(err, col) {
-        if (err) throw err;
-        success(col);
+    client.get(id, function(err, info){
+        if(err) throw err;
+        success({
+            id: id,
+            info: JSON.parse(info)
+        });
     });
 };
 
 exports.save = function(timetable, success) {
-    db.timetables.save({
-        "id": timetable.id,
-        "info" : timetable.info
-    },
-    function(err, saved) {
-        if (err) throw err;
-        success(timetable.id);
-    });
+    client.set(timetable.id, JSON.stringify(timetable.info),
+        function(err, saved) {
+            if (err) throw err;
+            success(timetable.id);
+        });
 };
 
 exports.update = function(timetable, success) {
-    db.timetables.update({
-        "id": timetable.id
-    }, {
-        $set: { "info": timetable.info }
-    }, function(err) {
-        if (err) throw err;
-        success();
-    });
+    client.set(timetable.id, JSON.stringify(timetable.info),
+        function(err) {
+            if (err) throw err;
+            success();
+        });
 };
