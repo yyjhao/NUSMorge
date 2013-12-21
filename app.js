@@ -6,7 +6,8 @@ var app = express();
 
 app.configure(function(){
     app.use(express.bodyParser());
-    app.use(express.static(__dirname + '/public'));
+    app.use(express.compress());    
+    app.use(express.static(__dirname + '/public'), { maxAge: 864000000 });
 });
 
 app.get('/');
